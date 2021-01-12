@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "front-daw"
+    }
+  },
+  "defaultProject": "front-daw",
+  "cli": {
+    "analytics": false
+  }
 }
