@@ -3,18 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { RegistroComponent } from './registro/registro.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { CarouselComponent } from './components/carousel/carousel.component';
+
 import { HttpClientModule } from "@angular/common/http";
+import {UserService} from './services/usuario.service';
+import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RegistroComponent,
-    NavBarComponent
+    NavBarComponent,
+    CarouselComponent,
+    JumbotronComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +29,7 @@ import { HttpClientModule } from "@angular/common/http";
     NgbModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
