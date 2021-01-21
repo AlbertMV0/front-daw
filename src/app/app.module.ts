@@ -13,6 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 import {UserService} from './services/usuario.service';
 import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
 import { LoginComponent } from './pages/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { LoginComponent } from './pages/login/login.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
