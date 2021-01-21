@@ -24,9 +24,28 @@ export class LoginComponent implements OnInit {
     });
   }
   public enviar(): void {
-    console.log(this.loginForm.getRawValue());
-    if (this.loginForm.valid) {
+    const formData = this.loginForm.getRawValue();
+    const data={username:formData.email,password:formData.password,grant_type:'password',client_id:2,client_secret:'MNdrVWGylx9oVtRRBW1dMlsLFcqlGdZkmk1x7JvI',scope:'*'};
+    console.log(data);
     
+    if (this.loginForm.valid) {
+    this.userService.login(data).subscribe(
+      (usuario:any)  =>
+      {
+        console.log("Correcto");
+        console.log(usuario);
+
+      },
+      error => {
+        console.log("Error");
+        console.log(error);
+      }
+    );
+    }
+  }
+}
+
+/*
       this.userService.getUsuarios().subscribe(
         (usuario:any)  =>
         {
@@ -38,7 +57,4 @@ export class LoginComponent implements OnInit {
           console.log("Error");
           console.log(error);
         }
-      );
-    }
-  }
-}
+      ); */
