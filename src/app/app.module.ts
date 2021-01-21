@@ -12,6 +12,7 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 import { HttpClientModule } from "@angular/common/http";
 import {UserService} from './services/usuario.service';
 import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
     NavBarComponent,
     CarouselComponent,
     JumbotronComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
