@@ -21,7 +21,8 @@ import { map } from 'rxjs/operators';
 })
 
 export class UserService {
-  constructor(private http:HttpClient) { }
+  headers:HttpHeaders;
+  constructor(private http:HttpClient) { this.headers=new HttpHeaders({"Accept":"application/json"})};
 
   /*login(values): Observable<any> {
     return this.http.post(environment.url + '/login', values).pipe(
@@ -32,6 +33,7 @@ export class UserService {
     );
   }
   */
+
   getUsuarios(): Observable<any> {
     /*const httpOptions = {
       headers: new HttpHeaders({
@@ -40,13 +42,18 @@ export class UserService {
         'X-Requested-With': 'XMLHttpRequest',
       }),
     };*/
-    return this.http.get('http://localhost:8000/api'+ '/usuarios')
+    return this.http.get('http://localhost:8000/api'+ '/getAllAlumnos')
     .pipe(map((results) => results));
   }
-
+  
   login(values): Observable<any> {
     
-    return this.http.post('http://localhost:8000/oauth/token',values)
-    .pipe(map((results) => results));
+   
+    return this.http.post('http://localhost:8000/api/login',values)
+    .pipe(map((results/*results:ModeloUsuario*/) => {
+      return results;
+    }
+
+     ));
   }
 }

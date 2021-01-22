@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
 
-  constructor(private form_builder: FormBuilder, private http: HttpClient,private userService:UserService ) { }
+  constructor(private form_builder: FormBuilder, private http: HttpClient,private userService:UserService, private router: Router ) { }
 
   ngOnInit() {
     //inicializamos la variable form
@@ -25,16 +25,18 @@ export class LoginComponent implements OnInit {
   }
   public enviar(): void {
     const formData = this.loginForm.getRawValue();
-    const data={username:formData.email,password:formData.password,grant_type:'password',client_id:2,client_secret:'MNdrVWGylx9oVtRRBW1dMlsLFcqlGdZkmk1x7JvI',scope:'*'};
+    const data={email:formData.email,password:formData.password};
     console.log(data);
     
     if (this.loginForm.valid) {
     this.userService.login(data).subscribe(
       (usuario:any)  =>
       {
+        this.router.navigate(['']);
         console.log("Correcto");
         console.log(usuario);
-
+        console.log(usuario.nivel);
+      localStorage.setItem("user", usuario.token);
       },
       error => {
         console.log("Error");
