@@ -2,15 +2,19 @@
   <div class="row text-center">
     <div class="col-4">
       <h2 >Ver Usuarios</h2>
-      <a class="btn btn-primary"  href="#" role="button">usuarios</a>
+      <a class="btn btn-primary" (click)="assingComponent('usuarios')" role="button">usuarios</a>
     </div>
     <div class="col-4">
       <h2 >Ver Clases</h2>
-      <a class="btn btn-primary" href="#" role="button">clases</a>
+      <a class="btn btn-primary" (click)="assingComponent('clases')" role="button">clases</a>
     </div>
     <div class="col-4">
       <h2>Ver Alumnos</h2>
-      <a class="btn btn-primary" href="#" role="button">alumnos</a>
+      <a class="btn btn-primary" (click)="assingComponent('alumnos')" role="button">alumnos</a>
     </div>
   </div>
+</div>
+
+<div class="cointainer">
+    <ng-container *ngComponentOutlet="dummyComponent"></ng-container>
 </div>

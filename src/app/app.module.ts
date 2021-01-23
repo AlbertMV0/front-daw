@@ -16,6 +16,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GestionComponent } from './pages/gestion/gestion.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
+import { AlumnosComponent } from './components/alumnos/alumnos.component';
+import { ClasesComponent } from './components/clases/clases.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     LoginComponent,
     GestionComponent,
     UsuariosComponent,
+    AlumnosComponent,
+    ClasesComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +40,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule
-  ],
+  ],entryComponents:[UsuariosComponent,AlumnosComponent,ClasesComponent],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
