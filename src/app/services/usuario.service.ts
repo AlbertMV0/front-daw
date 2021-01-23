@@ -83,6 +83,26 @@ export class UserService {
     }
   }
 
+  register(): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Requested-With': 'XMLHttpRequest',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+    if (sessionStorage.getItem('token')) {
+      return this.http.post('http://localhost:8000/api/register',null,httpOptions).pipe(
+        map((results) => {
+          console.log(results);
+          return results;
+        }));
+    } else {
+      return this.logout();
+    }
+  }
+
   logout(): Observable<any> {
     const headerDict = {
       'Content-Type': 'application/json',

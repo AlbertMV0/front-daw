@@ -15,23 +15,37 @@ export class NavBarComponent extends Metodos implements OnInit {
    }
 
   public loggedUser: any;
+  public usuario: any;
 
   ngAfterViewInit() {
    
   }
-  ngOnInit(): void {    
-    console.log(this.userService.getNivelUsuario());
-    
-    if (localStorage.getItem('token')) {
-      this.loggedUser = 1;
+  ngOnInit(): void {
+   /* this.usuario = this.usuarioDatos;
+    if (!this.usuario) {
+      this.userService.getActiveUser().subscribe((loggedUser: any) => {
+        this.usuario = loggedUser;
+        if (!this.usuario) {
+          sessionStorage.removeItem('token');
+          this.router.navigate(['/login']);
+        } else {
+          this.initForm();
+        }
+      });
     } else {
-      console.log();
-      
-      this.loggedUser = 0;
-      console.log("no registrado");
+      this.initForm();
     }
+    console.log('usu', this.usuario);*/
   }
-
+public register(){
+  this.userService.register().subscribe((results)=>{
+    console.log("funciono "+JSON.stringify(results));
+    
+  }, (error)=>{
+    console.log("error "+error);
+    
+  })
+}
   public logout(): void {
     console.log("Cerrando sesion");
 

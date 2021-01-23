@@ -17,9 +17,6 @@ export class Metodos {
       console.log(this.userService.usuarioLogeado.nivel);
       return this.userService.getUserLevel() > 0;
     }
-  
-    
-    
   }
   
  /* public get userLevel(): EUsuNivel {

@@ -12,7 +12,7 @@
         <a class="nav-link" href="#">Consultar Información</a>
       </li>
       <li>
-        <a class="nav-link" routerLink="/privada" href="#">Área privada</a>
+        <a class="nav-link" (click)="register()"  href="#">Área privada</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/login" href="#">Iniciar Sesión</a>
