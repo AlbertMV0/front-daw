@@ -46,7 +46,10 @@ export class UserService {
   login(values): Observable<any> {
     return this.http.post('http://localhost:8000/api/login', values).pipe(
       map((results: any /*results:ModeloUsuario*/) => {
-        this.usuarioLogeado = JSON.stringify(results.user);
+        console.log(results.user);
+        
+        this.usuarioLogeado =results.user;
+        console.log( this.usuarioLogeado);
         console.log('Se guarda el token');
         localStorage.setItem('token', results.token);
         return results;
@@ -70,7 +73,11 @@ export class UserService {
       }),
     };
     if (sessionStorage.getItem('token')) {
-      return this.http.get('http://localhost:8000/api/usuarioLogeado',httpOptions );
+      return this.http.get('http://localhost:8000/api/usuarioLogeado',httpOptions).pipe(
+        map((results) => {
+          console.log(results);
+          return results;
+        }));
     } else {
       return this.logout();
     }
@@ -144,7 +151,7 @@ export class UserService {
           map((results) => {
             console.log("Llamamos getLoggedUser: "+JSON.stringify(results));
             
-            return JSON.stringify(results);
+            return results;
           })
         );
     /*} else {
