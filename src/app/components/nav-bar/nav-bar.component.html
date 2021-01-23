@@ -15,8 +15,8 @@
         <a class="nav-link" routerLink="/privada" href="#">Área privada</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="usuarioLogeado" routerLink="/login" href="#">Iniciar Sesión</a>
-        <a class="nav-link" (click)="logout()" *ngIf="!usuarioLogeado" href="#">Cerrar Sesión</a>
+        <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/login" href="#">Iniciar Sesión</a>
+        <a class="nav-link" *ngIf="isLoggedIn" (click)="logout()" href="#">Cerrar Sesión</a>
       </li>
      
       <!--<li class="nav-item">

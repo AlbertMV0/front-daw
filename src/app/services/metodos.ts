@@ -5,16 +5,16 @@ export class Metodos {
   constructor(public userService: UserService) {
   }
 
-  public get usuarioLogeado() {
-    if (this.userService.getLoggedUser()) {
-      console.log("hay usuario");
-      
-    } else {
-      console.log("no hay");
-    }
+  public get usuarioDatos() {
     return this.userService.getLoggedUser();
   }
 
+  public get isLoggedIn(): boolean {
+    console.log(this.userService.getUserLevel());
+    
+    return this.userService.getUserLevel() > 0;
+  }
+  
  /* public get userLevel(): EUsuNivel {
     return this.userService.getUserLevel();
   }
@@ -22,6 +22,10 @@ export class Metodos {
   public get isLogeado(): boolean {
     return this.userService.getUserLevel() > 0;
   }*/
+
+  public get userLevel(): any {
+    return this.userService.getLoggedUser() ?  this.userService.usuarioLogeado['nivel'] : -1 ;
+  }
 
   public get isPadre(): boolean {
     return this.userService.getNivelUsuario() === 0;

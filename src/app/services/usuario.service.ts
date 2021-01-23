@@ -13,6 +13,9 @@ export class UserService {
   usuarioLogeado: any;
 
   constructor(private http: HttpClient) {
+   this.getLoggedUser().subscribe((user:any)=>{
+    this.usuarioLogeado = user;
+   });
    /* console.log("Llamando a getLoggedUser");
     
     this.getLoggedUser().subscribe((user: any) => {
@@ -49,6 +52,28 @@ export class UserService {
         return results;
       })
     );
+  }
+
+  getUserLevel(): any{
+    console.log(this.usuarioLogeado);
+  
+    return this.usuarioLogeado ? this.usuarioLogeado.nivel : -1 ;
+  }
+
+  getActiveUser(): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Requested-With': 'XMLHttpRequest',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+    if (sessionStorage.getItem('token')) {
+      return this.http.get('http://localhost:8000/api/usuarioLogeado',httpOptions );
+    } else {
+      return this.logout();
+    }
   }
 
   logout(): Observable<any> {

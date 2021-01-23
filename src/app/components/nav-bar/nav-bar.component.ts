@@ -8,10 +8,10 @@ import { Metodos } from 'src/app/services/metodos';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent /*extends Metodos*/ implements OnInit {
+export class NavBarComponent extends Metodos implements OnInit {
 
   constructor(public userService: UserService, private router: Router) {
-    //super(userService);
+    super(userService);
    }
 
   public loggedUser: any;
@@ -44,18 +44,7 @@ export class NavBarComponent /*extends Metodos*/ implements OnInit {
       );
   }
 
-  public get usuarioLogeado(){
-  if(this.userService.getLoggedUser()){
-    console.log("logeado");
-    
-    return true;
-  }else{
-    console.log("No logeado");
-    
-    return false;
-  }
-  
-  }
+
 
 }
 
