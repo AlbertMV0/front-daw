@@ -57,11 +57,7 @@ export class UserService {
     );
   }
 
-  getUserLevel(): any{
-    console.log(this.usuarioLogeado);
-  
-    return this.usuarioLogeado ? this.usuarioLogeado.nivel : -1 ;
-  }
+ 
 
   getActiveUser(): Observable<any> {
     const httpOptions = {
@@ -180,8 +176,7 @@ export class UserService {
   }
 
   getNivelUsuario(){
-    console.log(this.usuarioLogeado);
-    
+    //console.log(this.usuarioLogeado);
     return this.usuarioLogeado ? this.usuarioLogeado.nivel : -1 ;
   }
 }

@@ -15,6 +15,7 @@ import { JumbotronComponent } from './components/jumbotron/jumbotron.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { GestionComponent } from './pages/gestion/gestion.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { GestionComponent } from './pages/gestion/gestion.component';
     JumbotronComponent,
     LoginComponent,
     GestionComponent,
+    UsuariosComponent,
   ],
   imports: [
     BrowserModule,

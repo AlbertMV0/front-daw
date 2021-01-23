@@ -10,12 +10,12 @@ export class Metodos {
   }
 
   public get isLoggedIn(): boolean {
-    console.log(this.userService.usuarioLogeado);
+    //console.log(this.userService.usuarioLogeado);
     if(!this.userService.usuarioLogeado){
       return false;
     }else{
-      console.log(this.userService.usuarioLogeado.nivel);
-      return this.userService.getUserLevel() > 0;
+      //console.log(this.userService.usuarioLogeado.nivel);
+      return this.userService.getNivelUsuario() > 0;
     }
   }
   

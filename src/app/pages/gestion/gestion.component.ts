@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+//import { UsuariosComponent } from 'src/app/components/usuarios/usuarios.component';
 
 @Component({
   selector: 'app-gestion',
@@ -12,4 +13,5 @@ export class GestionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  tablaUsuarios(){}
 }
