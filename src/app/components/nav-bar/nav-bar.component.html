@@ -11,12 +11,14 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Consultar Información</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/login" href="#">Iniciar Sesión</a>
-      </li>
       <li>
         <a class="nav-link" routerLink="/privada" href="#">Área privada</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="usuarioLogeado" routerLink="/login" href="#">Iniciar Sesión</a>
+        <a class="nav-link" (click)="logout()" *ngIf="!usuarioLogeado" href="#">Cerrar Sesión</a>
+      </li>
+     
       <!--<li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>-->

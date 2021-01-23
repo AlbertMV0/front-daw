@@ -35,8 +35,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['']);
         console.log("Correcto");
         console.log(usuario);
-        console.log(usuario.nivel);
-      localStorage.setItem("user", usuario.token);
       },
       error => {
         console.log("Error");
