@@ -18,8 +18,8 @@ import { GestionComponent } from './pages/gestion/gestion.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { AlumnosComponent } from './components/alumnos/alumnos.component';
 import { ClasesComponent } from './components/clases/clases.component';
-import { AlumnoComponent } from './services/alumno/alumno.component';
-import { ClaseComponent } from './services/clase/clase.component';
+import { AlumnoService } from './services/alumno.service';
+import { ClaseService } from './services/clase.service';
 import { DatosComponent } from './pages/datos/datos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DatosPersonalesComponent } from './components/datos-personales/datos-personales.component';
@@ -39,8 +39,8 @@ import { RegistrarComponent } from './components/registrar/registrar.component';
     UsuariosComponent,
     AlumnosComponent,
     ClasesComponent,
-    AlumnoComponent,
-    ClaseComponent,
+    AlumnoService,
+    ClaseService,
     DatosComponent,
     FooterComponent,
     DatosPersonalesComponent,
