@@ -42,8 +42,5 @@ public register(){
         (error) => { console.error(error) }
       );
   }
-
-
-
 }
 
