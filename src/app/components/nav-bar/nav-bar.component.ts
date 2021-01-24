@@ -21,21 +21,6 @@ export class NavBarComponent extends Metodos implements OnInit {
    
   }
   ngOnInit(): void {
-   /* this.usuario = this.usuarioDatos;
-    if (!this.usuario) {
-      this.userService.getActiveUser().subscribe((loggedUser: any) => {
-        this.usuario = loggedUser;
-        if (!this.usuario) {
-          sessionStorage.removeItem('token');
-          this.router.navigate(['/login']);
-        } else {
-          this.initForm();
-        }
-      });
-    } else {
-      this.initForm();
-    }
-    console.log('usu', this.usuario);*/
   }
 public register(){
   this.userService.register().subscribe((results)=>{
