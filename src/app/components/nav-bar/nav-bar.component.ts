@@ -12,25 +12,23 @@ export class NavBarComponent extends Metodos implements OnInit {
 
   constructor(public userService: UserService, private router: Router) {
     super(userService);
-   }
+  }
 
   public loggedUser: any;
   public usuario: any;
 
-  ngAfterViewInit() {
-   
-  }
   ngOnInit(): void {
   }
-public register(){
-  this.userService.register().subscribe((results)=>{
-    console.log("funciono "+JSON.stringify(results));
-    
-  }, (error)=>{
-    console.log("error "+error);
-    
-  })
-}
+
+  public register() {
+    this.userService.register().subscribe((results) => {
+      console.log("funciono " + JSON.stringify(results));
+
+    }, (error) => {
+      console.log("error " + error);
+
+    })
+  }
   public logout(): void {
     console.log("Cerrando sesion");
 
