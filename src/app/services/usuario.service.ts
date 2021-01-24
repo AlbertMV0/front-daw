@@ -30,13 +30,6 @@ export class UserService {
   }
 
   getUsuarios(): Observable<any> {
-    /*const httpOptions = {
-      headers: new HttpHeaders({
-        Accept: 'application/json',
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'X-Requested-With': 'XMLHttpRequest',
-      }),
-    };*/
     return this.http
       .get('http://localhost:8000/api' + '/getAllAlumnos')
       .pipe(map((results) => results));
@@ -44,7 +37,7 @@ export class UserService {
 
   login(values): Observable<any> {
     return this.http.post('http://localhost:8000/api/login', values).pipe(
-      map((results: any /*results:ModeloUsuario*/) => {
+      map((results: any ) => {
         console.log(results.user);
         
         this.usuarioLogeado =results.user;
@@ -55,8 +48,6 @@ export class UserService {
       })
     );
   }
-
- 
 
   getActiveUser(): Observable<any> {
     const httpOptions = {
