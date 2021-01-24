@@ -12,16 +12,15 @@
         <a class="nav-link" href="#">Consultar Información</a>
       </li>
       <li>
+        <a class="nav-link" *ngIf="isProfesor || isPadre"  routerLink="/clase">Ver Clase</a>
+      </li>
+      <li>
         <a class="nav-link" *ngIf="isAdmin"  routerLink="/gestion">Gestión</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/login" href="#">Iniciar Sesión</a>
         <a class="nav-link" *ngIf="isLoggedIn" (click)="logout()" href="#">Cerrar Sesión</a>
       </li>
-     
-      <!--<li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>-->
     </ul>
   </div>
 </nav>
