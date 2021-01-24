@@ -15,18 +15,6 @@ export class UserService {
    this.getLoggedUser().subscribe((user:any)=>{
     this.usuarioLogeado = user;
    });
-   /* console.log("Llamando a getLoggedUser");
-    
-    this.getLoggedUser().subscribe((user: any) => {
-      console.log(user);
-      this.usuarioLogeado = user;
-      console.log("usuarioLogeado: "+this.usuarioLogeado);
-      
-    },error=>{
-      console.log("no hay usuario");
-      
-    });
-    /* this.headers=new HttpHeaders({"Accept":"application/json"})*/
   }
 
   getUsuarios(): Observable<any> {
