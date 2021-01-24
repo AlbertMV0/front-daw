@@ -23,6 +23,7 @@ import { DatosComponent } from './pages/datos/datos.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { DatosPersonalesComponent } from './components/datos-personales/datos-personales.component';
 import { RegistrarComponent } from './components/registrar/registrar.component';
+import { InfoComponent } from './pages/info/info.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { RegistrarComponent } from './components/registrar/registrar.component';
     FooterComponent,
     DatosPersonalesComponent,
     RegistrarComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,
