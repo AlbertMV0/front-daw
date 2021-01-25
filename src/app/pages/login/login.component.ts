@@ -12,7 +12,8 @@ import { UserService } from 'src/app/services/usuario.service';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-
+  mensajeError: string;
+error:boolean;
   constructor(private form_builder: FormBuilder, private http: HttpClient,private userService:UserService, private router: Router ) { }
 
   ngOnInit() {
@@ -39,6 +40,8 @@ export class LoginComponent implements OnInit {
       error => {
         console.log("Error");
         console.log(error);
+        this.mensajeError = 'Tiene que introducir unos datos válidos';
+        this.error = true;
       }
     );
     }
