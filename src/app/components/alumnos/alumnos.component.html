@@ -1,1 +1,33 @@
-<p>alumnos works!</p>
+<h1 class="my-4 text-center">Usuarios</h1>
+<<div class="row table-responsive m-0">
+<table class="col-10 mx-auto table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#Alumno</th>
+      <th scope="col" class="d-none d-md-table-cell">Nombre</th>
+      <th scope="col" class="d-none d-md-table-cell">Apellido</th>
+      <th scope="col">Edad</th>
+      <th scope="col" class="d-none d-md-table-cell">Aficiones</th>
+      <th scope="col" class="d-none d-md-table-cell">Genero</th>
+      <th scope="col" class="d-none d-md-table-cell">Clase</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let alumno of alumnos;let i=index;">
+        <td class="d-none d-md-table-cell"> {{alumno.id_alumno}} </td>
+      <td class="d-none d-md-table-cell"> {{alumno.nombre}} </td>
+      <td class="d-none d-md-table-cell"> {{alumno.apellidos}} </td>
+      <td> {{alumno.edad}} </td>
+      <td class="d-none d-md-table-cell"> {{alumno.aficiones}} </td>
+      <td class="d-none d-md-table-cell"> {{alumno.genero}} </td>
+      <td class="d-none d-md-table-cell"> {{alumno.clase}}   </td>
+  </tbody>
+</table>
+</div>
+<ngb-pagination class="d-flex justify-content-center"
+*ngIf="showPagination"
+[pageSize]="itemsPerPage"
+[collectionSize]="totalItems"
+[(page)]="activePage"
+></ngb-pagination>

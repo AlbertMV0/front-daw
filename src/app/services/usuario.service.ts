@@ -57,6 +57,51 @@ export class UserService {
     }
   }
 
+  getAllUsuarios(): Observable<any> {    
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Requested-With': 'XMLHttpRequest',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+      return this.http.get('http://localhost:8000/api/getAllUsuarios',httpOptions).pipe(
+        map((results) => {
+          return results;
+        }));
+  }
+
+  getAllClases(): Observable<any> {    
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Requested-With': 'XMLHttpRequest',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+      return this.http.get('http://localhost:8000/api/getAllClases',httpOptions).pipe(
+        map((results) => {
+          return results;
+        }));
+  }
+
+  getAllAlumnos(): Observable<any> {    
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Requested-With': 'XMLHttpRequest',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+      return this.http.get('http://localhost:8000/api/getAllAlumnos',httpOptions).pipe(
+        map((results) => {
+          return results;
+        }));
+  }
+
   register(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({

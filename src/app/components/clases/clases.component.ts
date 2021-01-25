@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-clases',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClasesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
+  clases: any;
 
   ngOnInit(): void {
+    this.userService.getAllClases().subscribe((result => {
+      console.log(result);
+      this.clases = result;
+    }), (error => {
+      console.log("Error " + error);
+
+    }));
   }
 
 }

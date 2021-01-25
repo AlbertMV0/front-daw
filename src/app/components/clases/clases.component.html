@@ -1,1 +1,20 @@
-<p>clases works!</p>
+<h1 class="my-4 text-center">Usuarios</h1>
+<<div class="row table-responsive m-0">
+<table class="col-10 mx-auto table table-striped table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#Clase</th>
+      <th scope="col" class="d-none d-md-table-cell">Nombre</th>
+      <th scope="col" class="d-none d-md-table-cell">Profesor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let clase of clases;let i=index;">
+      <th> {{clase.id_clase}} </th>
+      <td class="d-none d-md-table-cell"> {{clase.nombre_clase}} </td>
+      <td class="d-none d-md-table-cell" *ngIf="clase.prof"> {{clase.prof}}({{clase.id_profesor}}) </td>
+      <td class="d-none d-md-table-cell" *ngIf="!clase.prof">  </td>
+    </tr>
+  </tbody>
+</table>
+</div>

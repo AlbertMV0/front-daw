@@ -10,7 +10,8 @@ import { UsuariosComponent } from 'src/app/components/usuarios/usuarios.componen
   styleUrls: ['./gestion.component.scss']
 })
 export class GestionComponent implements OnInit {
-  dummyComponent = UsuariosComponent;
+  dummyComponent:any;
+  
 
   constructor() { }
 

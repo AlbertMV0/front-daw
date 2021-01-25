@@ -1,5 +1,5 @@
-<!--<h1 *ngIf="true" class="my-4 text-center">Usuarios</h1>
-<div class="row table-responsive m-0">
+<h1 class="my-4 text-center">Usuarios</h1>
+<<div class="row table-responsive m-0">
 <table class="col-10 mx-auto table table-striped table-hover">
   <thead>
     <tr>
@@ -16,31 +16,18 @@
   </thead>
   <tbody>
     <tr *ngFor="let usuario of usuarios | slice: (activePage - 1) * itemsPerPage:(activePage - 1) * itemsPerPage + itemsPerPage;  let i=index;">
-      <th> {{usuario.id_usuario}} </th>
-      <td class="d-none d-md-table-cell"> {{usuario.nombre}} </td>
-      <td class="d-none d-md-table-cell"> {{usuario.apellido}} </td>
+      <th> {{usuario.id}} </th>
+      <td class="d-none d-md-table-cell"> {{usuario.name}} </td>
+      <td class="d-none d-md-table-cell"> {{usuario.apellidos}} </td>
       <td> {{usuario.email}} </td>
       <td class="d-none d-md-table-cell"> {{usuario.telefono}} </td>
       <td class="d-none d-md-table-cell"> {{usuario.direccion}} </td>
-      <td class="d-none d-md-table-cell">
-
-        <div class="form-group" *ngIf="!!niveles">
-          <ng-select [disabled]="!usuario.habilitado" [items]="niveles" [bindLabel]="'label'" [bindValue]="'value'" [(ngModel)]="usuario.nivel" (change)="onSelectChange($event, usuario)" [id]="'user-' + usuario.id_usuario" [multiple]="false" >
-          </ng-select>
-
-        </div>
-     </td>
+      <td class="d-none d-md-table-cell"> {{usuario.tipo}}   </td>
       <td>
-        <div class="row">
-        <div class="custom-control custom-switch col-xs-12 col-xl-6 my-auto">
-          <input type="checkbox" class="custom-control-input" id="{{'user'+i}}"  [checked]="usuario.habilitado" (change)="habilitarUsuario(usuario)">
-          <label class="custom-control-label" for="{{'user'+i}}">Habilitado</label>
-        </div>
-        <button type="button" class="btn btn-primary d-md-none rounded-bottom mb-1" (click)="openVerticallyCentered(usuario, 'infoUsuario')">
-        Ver más
-        </button>
-      </div>
-    </td>
+      <span *ngFor="let alumno of usuario.alumnos">
+        {{alumno.nombre}} ({{alumno.id_alumno}})
+      </span></td>
+    <td>{{usuario.clase}}</td>
     </tr>
   </tbody>
 </table>
@@ -50,5 +37,4 @@
 [pageSize]="itemsPerPage"
 [collectionSize]="totalItems"
 [(page)]="activePage"
-></ngb-pagination>-->
-<h1>usuarios</h1>
+></ngb-pagination>
