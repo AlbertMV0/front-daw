@@ -25,8 +25,11 @@ import { DatosPersonalesComponent } from './components/datos-personales/datos-pe
 import { RegistrarComponent } from './components/registrar/registrar.component';
 import { InfoComponent } from './pages/info/info.component';
 import { MapComponent } from './components/map/map.component';
-import { GoogleMapsModule } from '@angular/google-maps';
-import { AgmCoreModule } from '@agm/core';
+//import { GoogleMapsModule } from '@angular/google-maps';
+//import { AgmCoreModule } from '@agm/core';
+import { CreacionComponent } from './pages/creacion/creacion.component';
+import { CreacionUsuarioComponent } from './components/creacion-usuario/creacion-usuario.component';
+import { CreacionAlumnoComponent } from './components/creacion-alumno/creacion-alumno.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { AgmCoreModule } from '@agm/core';
     RegistrarComponent,
     InfoComponent,
     MapComponent,
+    CreacionComponent,
+    CreacionUsuarioComponent,
+    CreacionAlumnoComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,11 +59,11 @@ import { AgmCoreModule } from '@agm/core';
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
-    GoogleMapsModule,
-    AgmCoreModule.forRoot({
+    //GoogleMapsModule,
+    /*AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAJCazelb9sIDI9kdXZZ2NMtHIQ8hh6Zws',
       libraries: ['places'],
-    }),
+    }),*/
   ],
   entryComponents: [UsuariosComponent, AlumnosComponent, ClasesComponent],
   providers: [UserService],

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/usuario.service';
-import { runInThisContext } from 'vm';
+//import { runInThisContext } from 'vm';
 
 @Component({
   selector: 'app-usuarios',
