@@ -17,9 +17,15 @@ export class CreacionComponent implements OnInit {
 error:boolean;
 opciones:string[]=["Padre","Profesor"];
 
+selectedSimpleItem = '';
+simpleItems = [];
+
+
   constructor(private form_builder: FormBuilder, private http: HttpClient,private userService:UserService, private router: Router ) { }
 
   ngOnInit() {
+    //this.selectedSimpleItem = this.opcione;
+    this.simpleItems = ["Profesor", 'Padre/Tutor legal'];
     //inicializamos la variable form
     this.userForm = this.form_builder.group({
       nombre: [null, [ Validators.required]],//[null,Validators.compose([Validators.email,Validators.required])]

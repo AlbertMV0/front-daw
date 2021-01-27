@@ -30,7 +30,8 @@ import { MapComponent } from './components/map/map.component';
 import { CreacionComponent } from './pages/creacion/creacion.component';
 import { CreacionUsuarioComponent } from './components/creacion-usuario/creacion-usuario.component';
 import { CreacionAlumnoComponent } from './components/creacion-alumno/creacion-alumno.component';
-
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,8 @@ import { CreacionAlumnoComponent } from './components/creacion-alumno/creacion-a
     NgbModule,
     HttpClientModule,
     ReactiveFormsModule,
+    NgSelectModule,
+    FormsModule,
     //GoogleMapsModule,
     /*AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAJCazelb9sIDI9kdXZZ2NMtHIQ8hh6Zws',
