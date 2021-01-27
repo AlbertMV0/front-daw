@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { UserService } from 'src/app/services/usuario.service';
+import { AlumnosComponent } from 'src/app/components/alumnos/alumnos.component';
+import { ClasesComponent } from 'src/app/components/clases/clases.component';
 
 @Component({
   selector: 'app-creacion',
