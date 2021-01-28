@@ -102,7 +102,7 @@ export class UserService {
         }));
   }
 
-  register(): Observable<any> {
+  registerUser(): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         Accept: 'application/json',
