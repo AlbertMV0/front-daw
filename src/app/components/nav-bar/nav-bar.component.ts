@@ -20,12 +20,8 @@ export class NavBarComponent extends Metodos implements OnInit {
   }
 
   public register() {
-    this.userService.register().subscribe((results) => {
-      console.log("funciono" + JSON.stringify(results));
-    }, (error) => {
-      console.log("error " + error);
-
-    })
+   console.log("register");
+   
   }
   public logout(): void {
     console.log("Cerrando sesion");

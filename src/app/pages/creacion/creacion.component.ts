@@ -34,10 +34,9 @@ export class CreacionComponent implements OnInit {
       apellidos: [null, Validators.required],
       email: [null, [Validators.email, Validators.required]],
       password: [null, [Validators.required]],
-      telefono: [null, [Validators.maxLength(9), Validators.required]],
-      direccion: [null, [Validators.required]],
+      telefono: ["", [Validators.maxLength(9)]],
+      direccion: ["", []],
       tipo: [null, [Validators.required]],
-      //email: [null, [Validators.required]],
     });
   }
 
@@ -45,7 +44,7 @@ export class CreacionComponent implements OnInit {
     const formData = this.userForm.getRawValue();
     console.log();
 
-    const data = {
+    const data = { nombre: formData.nombre,
       email: formData.email, password: formData.password,
       apellidos: formData.apellidos, telefono: formData.telefono, direccion: formData.direccion,
       tipo: formData.tipo
@@ -61,11 +60,10 @@ export class CreacionComponent implements OnInit {
       }
       console.log(data['tipo']);
 
-      this.userService.login(data).subscribe(
-        (usuario: any) => {
-          this.router.navigate(['']);
-          console.log("Correcto");
-          console.log(usuario);
+      this.userService.registerUser(data).subscribe(
+        (resultado: any) => {
+          console.log("Usuario creado");
+          console.log(resultado);
         },
         error => {
           console.log("Error");
@@ -74,6 +72,9 @@ export class CreacionComponent implements OnInit {
           this.error = true;
         }
       );
+    }else{
+      console.log("usuario no valido");
+      
     }
   }
 

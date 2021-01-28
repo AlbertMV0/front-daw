@@ -102,7 +102,15 @@ export class UserService {
         }));
   }
 
-  registerUser(): Observable<any> {
+  registerUser(data:any): Observable<any> {
+
+      const params = new HttpParams().set('name', data.nombre)
+      .set('apellidos', data.apellidos)
+      .set('email', data.email)
+      .set('password', data.password)
+      .set('telefono', data.telefono)
+      .set('direccion', data.direccion)
+      .set('nivel', data.tipo);
     const httpOptions = {
       headers: new HttpHeaders({
         Accept: 'application/json',
@@ -111,15 +119,16 @@ export class UserService {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       }),
     };
-    if (sessionStorage.getItem('token')) {
-      return this.http.post('http://localhost:8000/api/register',null,httpOptions).pipe(
+ 
+      return this.http.post('http://localhost:8000/api/registerUser',params,httpOptions).pipe(
         map((results) => {
           console.log(results);
           return results;
+        },(error) => {
+          console.log("error de la api");
+          console.log(error);
         }));
-    } else {
-      return this.logout();
-    }
+    
   }
 
   logout(): Observable<any> {
