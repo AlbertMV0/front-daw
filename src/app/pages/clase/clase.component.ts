@@ -12,4 +12,5 @@ export class ClaseComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  alumnos=['s','d','e','w','q','e','r','e'];
 }
