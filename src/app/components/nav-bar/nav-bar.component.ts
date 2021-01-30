@@ -15,13 +15,21 @@ export class NavBarComponent extends Metodos implements OnInit {
   }
 
   public loggedUser: any;
+  public alumnos: any;
 
   ngOnInit(): void {
+    this.userService.getLoggedUser().subscribe((result => {
+      this.loggedUser = result;
+      if (this.loggedUser.nivel == 0) {
+        this.alumnos = this.loggedUser.alumnos;
+        console.log(this.alumnos);
+      }
+    }));
   }
 
   public register() {
-   console.log("register");
-   
+    console.log("register");
+
   }
   public logout(): void {
     console.log("Cerrando sesion");
@@ -33,6 +41,12 @@ export class NavBarComponent extends Metodos implements OnInit {
       },
         (error) => { console.error(error) }
       );
+  }
+
+  public verClase() {
+   
+
+    // this.router.navigate(['clase/']);
   }
 }
 

@@ -18,8 +18,14 @@
         <a class="nav-link" *ngIf="isAdmin"  routerLink="/gestion">Gestión</a>
       </li>
       <li>
-        <a class="nav-link" *ngIf="isProfesor || isPadre"  routerLink="/clase">Ver Clase</a>
+        <a class="nav-link" *ngIf="isProfesor" (click)="verClase()">Ver Clase</a>
       </li>
+      <li *ngIf="isPadre" class="nav-item dropdown">
+        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">Ver clase</a>
+         <ul class="dropdown-menu">
+           <li *ngFor="let alumno of alumnos"><a class="dropdown-item" routerLink="/clase/{{alumno.id_clase}}">Clase de {{alumno.nombre}}</a></li>
+         </ul>
+     </li>
       <li class="nav-item">
         <a class="nav-link" *ngIf="!isLoggedIn" routerLink="/login" (click)="login()" href="#">Iniciar Sesión</a>
         <a class="nav-link" *ngIf="isLoggedIn" (click)="logout()" href="#">Cerrar Sesión</a>

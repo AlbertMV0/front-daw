@@ -1,15 +1,40 @@
-<div class="card-columns">
-  <div class="card">
-    <img class="card-img-top" src="assets/images/profile.png" alt="Card image cap" />
-    <div class="card-body">
-      <h5 class="card-title">Maria Morenilla</h5>
-      <p class="card-text">
-        This card has supporting text below as a natural lead-in to additional
-        content.
-      </p>
-      <p class="card-text">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </p>
+<div class="container">
+  <h1></h1>
+  <div class="row-profesor d-flex justify-content-center mb-5">
+    <div class="card profesor">
+      <img
+        class="card-img-top"
+        src="assets/images/profile.png"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ clase.prof }}</h5>
+        <p class="card-text"></p>
+        <p class="card-text">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card-columns">
+      <div *ngFor="let alumno of alumnos" class="card">
+        <img
+          class="card-img-top"
+          src="assets/images/profile.png"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ alumno.nombre }}</h5>
+          <p class="card-text">
+            {{ alumno.aficiones }}
+          </p>
+          <p class="card-text">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -17,6 +17,7 @@ import { GestionComponent } from './pages/gestion/gestion.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { AlumnosComponent } from './components/alumnos/alumnos.component';
 import { ClasesComponent } from './components/clases/clases.component';
+import { ClaseComponent } from './pages/clase/clase.component';
 import { AlumnoService } from './services/alumno.service';
 import { ClaseService } from './services/clase.service';
 import { DatosComponent } from './pages/datos/datos.component';
@@ -53,6 +54,7 @@ import { FormsModule } from '@angular/forms';
     CreacionComponent,
     CreacionUsuarioComponent,
     CreacionAlumnoComponent,
+    ClaseComponent,    
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,7 @@ import { FormsModule } from '@angular/forms';
     }),*/
   ],
   entryComponents: [UsuariosComponent, AlumnosComponent, ClasesComponent],
-  providers: [UserService],
+  providers: [UserService,ClaseService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
