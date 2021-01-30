@@ -33,6 +33,14 @@ import { CreacionUsuarioComponent } from './components/creacion-usuario/creacion
 import { CreacionAlumnoComponent } from './components/creacion-alumno/creacion-alumno.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
+import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
+import dayGridPlugin from '@fullcalendar/daygrid';
+import { AlumnoComponent } from './pages/alumno/alumno.component'; // a plugin
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin
+]);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -54,7 +62,8 @@ import { FormsModule } from '@angular/forms';
     CreacionComponent,
     CreacionUsuarioComponent,
     CreacionAlumnoComponent,
-    ClaseComponent,    
+    ClaseComponent,
+    AlumnoComponent,    
   ],
   imports: [
     BrowserModule,
@@ -64,6 +73,7 @@ import { FormsModule } from '@angular/forms';
     ReactiveFormsModule,
     NgSelectModule,
     FormsModule,
+    FullCalendarModule
     //GoogleMapsModule,
     /*AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAJCazelb9sIDI9kdXZZ2NMtHIQ8hh6Zws',
