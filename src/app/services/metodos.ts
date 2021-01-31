@@ -5,7 +5,7 @@ export class Metodos {
   constructor(public userService: UserService) {
   }
 
-  public get usuarioDatos() {
+  public usuarioDatos() {
     return this.userService.getLoggedUser();
   }
 
@@ -15,7 +15,7 @@ export class Metodos {
       return false;
     }else{
       //console.log(this.userService.usuarioLogeado.nivel);
-      return this.userService.getNivelUsuario() > 0;
+      return this.userService.getNivelUsuario() >= 0;
     }
   }
   

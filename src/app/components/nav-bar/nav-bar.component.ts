@@ -16,6 +16,7 @@ export class NavBarComponent extends Metodos implements OnInit {
 
   public loggedUser: any;
   public alumnos: any;
+  public clase:any;
 
   ngOnInit(): void {
     this.userService.getLoggedUser().subscribe((result => {
@@ -23,6 +24,8 @@ export class NavBarComponent extends Metodos implements OnInit {
       if (this.loggedUser.nivel == 0) {
         this.alumnos = this.loggedUser.alumnos;
         console.log(this.alumnos);
+      }else if(this.loggedUser.nivel == 1){
+        this.clase=this.loggedUser.clase;
       }
     }));
   }

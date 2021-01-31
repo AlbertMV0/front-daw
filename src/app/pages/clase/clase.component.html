@@ -31,7 +31,7 @@
             {{ alumno.aficiones }}
           </p>
           <p class="card-text">
-            <small class="text-muted">Last updated 3 mins ago</small>
+           <a href="" *ngIf="alumno.disponible" routerLink="/alumno/{{alumno.id_alumno}}">Ver información</a>
           </p>
         </div>
       </div>

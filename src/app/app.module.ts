@@ -35,7 +35,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
 import dayGridPlugin from '@fullcalendar/daygrid';
-import { AlumnoComponent } from './pages/alumno/alumno.component'; // a plugin
+import { AlumnoComponent } from './pages/alumno/alumno.component';
+import { EditarComponent } from './components/editar/editar.component';
+ // a plugin
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin
@@ -63,7 +65,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     CreacionUsuarioComponent,
     CreacionAlumnoComponent,
     ClaseComponent,
-    AlumnoComponent,    
+    AlumnoComponent,
+    EditarComponent,
   ],
   imports: [
     BrowserModule,

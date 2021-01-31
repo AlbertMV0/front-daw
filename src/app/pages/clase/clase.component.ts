@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ClaseService } from 'src/app/services/clase.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/usuario.service';
-import { CommonModule } from '@angular/common';  
+import { Metodos } from 'src/app/services/metodos';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
@@ -10,28 +11,43 @@ import { BrowserModule } from '@angular/platform-browser';
   templateUrl: './clase.component.html',
   styleUrls: ['./clase.component.scss']
 })
-export class ClaseComponent implements OnInit {
+export class ClaseComponent extends Metodos implements OnInit {
 
-  constructor(private claseService: ClaseService, private userService: UserService, private activatedRoute: ActivatedRoute,) { }
+  constructor(private claseService: ClaseService, public userService: UserService, private activatedRoute: ActivatedRoute,) {
+    super(userService)
+  }
   user: any;
-  clase:any;
-  alumnos:any;
-  profesor:any;
+  clase: any;
+  alumnos: any;
+  profesor: any;
+  informacion: any;
+
   ngOnInit(): void {
-    //this.user = this.userService.getLoggedUser();
+  
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.claseService.getClase(id).subscribe((result => {
       console.log("ver clase");
-      this.clase=result;
-      this.alumnos=this.clase.alumnos;
-    console.log(this.clase);
-
-    
+      this.clase = result;
+      this.alumnos = this.clase.alumnos;
+      console.log(this.clase);
+      console.log(this.user);
+      console.log( this.alumnos);
+      
     }), (error => {
       console.log("error");
-
     }));
+
+    this.usuarioDatos().subscribe((result => { 
+      this.user = result; 
+      if (this.user.nivel == 1) {
+        this.alumnos.forEach(element => {
+          element.disponible = true;
+        });
+      }
+    }));
+
   }
+
 
 
 }

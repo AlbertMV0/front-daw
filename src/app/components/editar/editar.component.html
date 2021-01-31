@@ -1,0 +1,92 @@
+<div class="">
+ 
+  <form [formGroup]="alumnoForm" (ngSubmit)="modificar()">
+    <div class="form-row">
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <label for="inputEmail4MD">Nombre</label>
+          <input  [readonly]="nombre"
+            formControlName="nombre"
+            type="text"
+            class="form-control"
+            id="inputEmail4MD"
+            placeholder="Nombre"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <label for="inputPassword4MD">Apellidos</label>
+
+          <input  [readonly]="apellidos"
+            formControlName="apellidos"
+            class="form-control"
+            id="inputPassword4MD"
+            placeholder="Apellidos"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="md-form form-group">
+          <label for="inputAddressMD">Edad</label>
+
+          <input  [readonly]="edad"
+            formControlName="edad"
+            type="text"
+            class="form-control"
+            id="inputAddressMD"
+            placeholder=""
+          />
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="md-form form-group">
+          <label for="inputAddress2MD">Aficiones</label>
+
+          <input  [readonly]="aficiones"
+            formControlName="aficiones"
+            type="text"
+            class="form-control"
+            id="inputAddress2MD"
+            placeholder=""
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <label for="Género">Género</label>
+          <ng-select
+          [readonly]="genero"
+            [items]="items"
+            formControlName="genero"
+          >
+          </ng-select>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <label for="inputZipMD">Alérgias</label>
+
+          <input  [readonly]="alergias"
+            formControlName="alergias"
+            type="text"
+            class="form-control"
+            id="inputZipMD"
+            placeholder=""
+          />
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <button type="submit" mdbBtn color="primary">Aceptar</button>
+    </div>
+  </form>
+</div>
