@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
-import { EditarComponent } from 'src/app/components/editar/editar.component';
+import { EditarComponent } from 'src/app/components/editar-alumno/editar.component';
 import { UserService } from 'src/app/services/usuario.service';
 import { AlumnoService } from 'src/app/services/alumno.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';

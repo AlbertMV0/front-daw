@@ -1,5 +1,4 @@
-<div class="">
- 
+<div class="container">
   <form [formGroup]="alumnoForm" (ngSubmit)="modificar()">
     <div class="form-row">
       <div class="col-md-6">
@@ -85,6 +84,22 @@
         </div>
       </div>
     </div>
+
+    <div class="col-md-6" *ngIf="!id_clase">
+      <div class="md-form form-group">
+        <label for="inputMD">Cambiar de clase a:</label>
+        <input 
+          formControlName="cambioClase"
+          type="text"
+          class="form-control"
+          id="inputMD"
+          placeholder="Actual: {{alumno.id_clase}}"
+        />
+      </div>
+    </div>
+  
+
+
     <div class="d-flex justify-content-center">
       <button type="submit" mdbBtn color="primary">Aceptar</button>
     </div>

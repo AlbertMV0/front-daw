@@ -24,6 +24,7 @@ export class EditarComponent implements OnInit {
   aficiones: any;
   genero: any;
   alergias: any;
+  id_clase:any;
 
   ngOnInit(): void {
     this.userService.getLoggedUser().subscribe((result => {
@@ -35,6 +36,8 @@ export class EditarComponent implements OnInit {
         this.aficiones = false;
         this.genero = true;
         this.alergias = false;
+        this.id_clase=true;
+
       } else if (this.user.nivel == 1) {
         this.nombre = true;
         this.apellidos = true;
@@ -42,6 +45,8 @@ export class EditarComponent implements OnInit {
         this.aficiones = true;
         this.genero = true;
         this.alergias = true;
+        this.id_clase=true;
+
       } else if (this.user.nivel == 2) {
         this.nombre = false;
         this.apellidos = false;
@@ -49,6 +54,7 @@ export class EditarComponent implements OnInit {
         this.aficiones = false;
         this.genero = false;
         this.alergias = false;
+        this.id_clase=false;
       }
     }));
     let id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -64,6 +70,7 @@ export class EditarComponent implements OnInit {
       aficiones: [null],
       genero: [null],
       alergias: [null],
+      cambioClase:[null, [Validators.pattern('[0-9]*')]],
     });
 
 
@@ -84,11 +91,20 @@ export class EditarComponent implements OnInit {
         aficiones: formData.aficiones, alergias: formData.alergias
       };
     } else if (this.user.nivel == 2) {
-
+      data = {
+        id_alumno: this.alumno.id_alumno,
+        nombre: formData.nombre,
+        genero:  formData.genero,
+        apellidos:  formData.apellidos,
+        edad:  formData.edad,
+        id_clase:  formData.cambioClase,
+        aficiones: formData.aficiones, alergias: formData.alergias
+      };
     }
 
-
     if (this.alumnoForm.valid) {
+      console.log(data);
+      
       this.alumnoService.editAlumno(data).subscribe((result=>{
         console.log("Actualizado!");
       }));

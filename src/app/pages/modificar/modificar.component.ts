@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EditarComponent } from 'src/app/components/editar/editar.component';
+import { EditarComponent } from 'src/app/components/editar-alumno/editar.component';
 import { EditarUsuarioComponent } from 'src/app/components/editar-usuario/editar-usuario.component';
 import { EditarClaseComponent } from 'src/app/components/editar-clase/editar-clase.component';
 import { ActivatedRoute, Router } from '@angular/router';

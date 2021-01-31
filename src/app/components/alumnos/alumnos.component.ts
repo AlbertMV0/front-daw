@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/usuario.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-alumnos',
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/services/usuario.service';
 })
 export class AlumnosComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private router: Router) { }
   alumnos: any;
   totalItems: number;
   activePage = 1;
@@ -32,4 +33,7 @@ export class AlumnosComponent implements OnInit {
     }));
   }
 
+  public editAlumno(alumno) {
+    this.router.navigate(['modificar/alumnos/'+alumno.id_alumno]);
+  }
 }
