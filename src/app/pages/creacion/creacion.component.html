@@ -1,168 +1,247 @@
 <div class="container">
- <!-- <h1>Creando un nuevo Usuario</h1>-->
-<form  [formGroup]="userForm" (ngSubmit)="enviar()">
+  <!-- <h1>Creando un nuevo Usuario</h1>-->
+  <form [formGroup]="userForm" (ngSubmit)="enviar()">
     <div class="form-row">
       <div class="col-md-6">
         <div class="md-form form-group">
           <label for="inputEmail4MD">Nombre</label>
-          <input formControlName="nombre" type="text" class="form-control" id="inputEmail4MD" placeholder="Nombre">
-         
+          <input
+            formControlName="nombre"
+            type="text"
+            class="form-control"
+            id="inputEmail4MD"
+            placeholder="Nombre"
+          />
         </div>
       </div>
       <div class="col-md-6">
         <div class="md-form form-group">
           <label for="inputPassword4MD">Apellidos</label>
 
-          <input  formControlName="apellidos" class="form-control" id="inputPassword4MD" placeholder="Apellidos">
+          <input
+            formControlName="apellidos"
+            class="form-control"
+            id="inputPassword4MD"
+            placeholder="Apellidos"
+          />
         </div>
       </div>
-     
     </div>
-  
+
     <div class="row">
       <div class="col-md-12">
         <div class="md-form form-group">
           <label for="inputAddressMD">email</label>
 
-          <input  formControlName="email" type="text" class="form-control" id="inputAddressMD" placeholder="ejemplo@gmail.com">
+          <input
+            formControlName="email"
+            type="text"
+            class="form-control"
+            id="inputAddressMD"
+            placeholder="ejemplo@gmail.com"
+          />
         </div>
       </div>
-  
+
       <div class="col-md-12">
         <div class="md-form form-group">
           <label for="inputAddress2MD">Contraseña</label>
 
-          <input  formControlName="password" type="text" class="form-control" id="inputAddress2MD" placeholder="Contraseña">
+          <input
+            formControlName="password"
+            type="text"
+            class="form-control"
+            id="inputAddress2MD"
+            placeholder="Contraseña"
+          />
         </div>
       </div>
     </div>
-  
+
     <div class="form-row">
-        
       <div class="col-md-6">
         <div class="md-form form-group">
           <label for="inputCityMD">Télefono</label>
 
-          <input  formControlName="telefono" type="text" class="form-control" id="inputCityMD" placeholder="">
+          <input
+            formControlName="telefono"
+            type="text"
+            class="form-control"
+            id="inputCityMD"
+            placeholder=""
+          />
         </div>
       </div>
-  
+
       <div class="col-md-6">
         <div class="md-form form-group">
           <label for="inputZipMD">direccion</label>
 
-          <input  formControlName="direccion" type="text" class="form-control" id="inputZipMD" placeholder="c/ Plaza España">
+          <input
+            formControlName="direccion"
+            type="text"
+            class="form-control"
+            id="inputZipMD"
+            placeholder="c/ Plaza España"
+          />
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="md-form form-group">
           <label for="tipo">Tipo</label>
-          <ng-select [items]="simpleItems"
-          formControlName="tipo"
-            [(ngModel)]="selectedSimpleItem"> 
-        </ng-select>
+          <ng-select
+            [items]="simpleItems"
+            formControlName="tipo"
+            [(ngModel)]="selectedSimpleItem"
+          >
+          </ng-select>
           <!--<input  formControlName="tipo" type="text" class="form-control" id="inputZipMdD" placeholder="c/ Plaza España">-->
         </div>
       </div>
-     <div *ngIf="selectedSimpleItem == 'Padre/Tutor legal'" class="col-md-6">
+      <div *ngIf="selectedSimpleItem == 'Padre/Tutor legal'" class="col-md-6">
         <div class="md-form form-group">
           <label for="id_alumno">Id Alumno</label>
 
-          <input  formControlName="id_alumno" type="number" class="form-control" id="id_alumno" placeholder="">
+          <input
+            formControlName="id_alumno"
+            type="number"
+            class="form-control"
+            id="id_alumno"
+            placeholder=""
+          />
         </div>
       </div>
       <div *ngIf="selectedSimpleItem == 'Profesor'" class="col-md-3">
         <div class="md-form form-group">
           <label for="id_clase">Id Clase</label>
 
-          <input  formControlName="id_clase" type="number" class="form-control" id="id_clase" placeholder="">
+          <input
+            formControlName="id_clase"
+            type="number"
+            class="form-control"
+            id="id_clase"
+            placeholder=""
+          />
         </div>
       </div>
-             <div class="container_alumnos" *ngIf="selectedSimpleItem == 'Profesor'">
-               <app-clases></app-clases>
-             </div>
-             <div class="container_alumnos" *ngIf="selectedSimpleItem == 'Padre/Tutor legal'">
-              <app-alumnos></app-alumnos>
-            </div>
-
+      <div class="container_alumnos" *ngIf="selectedSimpleItem == 'Profesor'">
+        <app-clases></app-clases>
+      </div>
+      <div
+        class="container_alumnos"
+        *ngIf="selectedSimpleItem == 'Padre/Tutor legal'"
+      >
+        <app-alumnos></app-alumnos>
+      </div>
     </div>
     <div class="d-flex justify-content-center">
-    <button type="submit" mdbBtn color="primary">Sign in</button>
-  </div>
+      <button type="submit" mdbBtn color="primary">Sign in</button>
+    </div>
   </form>
 </div>
 
 <div class="container">
- <!-- <h1>Creando un nuevo Usuario</h1>-->
-<!--<form  [formGroup]="loginForm" (ngSubmit)="enviar()">
+  <!--<form [formGroup]="alumnoForm" (ngSubmit)="modificar()">
     <div class="form-row">
       <div class="col-md-6">
         <div class="md-form form-group">
-          <label for="inputEmail4MD">Nombre</label>
-          <input formControlName="nombre" type="text" class="form-control" id="inputEmail4MD" placeholder="Nombre">
-         
+          <label for="Nombre">Nombre</label>
+          <input
+                   formControlName="nombre"
+            type="text"
+            class="form-control"
+            id="Nombre"
+            placeholder=""
+          />
         </div>
       </div>
       <div class="col-md-6">
         <div class="md-form form-group">
-          <label for="inputPassword4MD">Apellidos</label>
+          <label for="Apellidos">Apellidos</label>
 
-          <input  formControlName="apellidos" class="form-control" id="inputPassword4MD" placeholder="Apellidos">
+          <input
+                      formControlName="apellidos"
+            class="form-control"
+            id="Apellidos"
+            placeholder=""
+          />
         </div>
       </div>
-     
     </div>
-  
+
     <div class="row">
       <div class="col-md-12">
         <div class="md-form form-group">
-          <label for="inputAddressMD">email</label>
+          <label for="Edad">Edad</label>
 
-          <input  formControlName="email" type="text" class="form-control" id="inputAddressMD" placeholder="ejemplo@gmail.com">
+          <input
+                 formControlName="edad"
+            type="text"
+            class="form-control"
+            id="Edad"
+            placeholder=""
+          />
         </div>
       </div>
-  
+
       <div class="col-md-12">
         <div class="md-form form-group">
-          <label for="inputAddress2MD">Contraseña</label>
+          <label for="Aficiones">Aficiones</label>
 
-          <input  formControlName="password" type="text" class="form-control" id="inputAddress2MD" placeholder="Contraseña">
+          <input
+                      formControlName="aficiones"
+            type="text"
+            class="form-control"
+            id="Aficiones"
+            placeholder=""
+          />
         </div>
       </div>
-    </div>
-  
+
+
     <div class="form-row">
-        
       <div class="col-md-6">
         <div class="md-form form-group">
-          <label for="inputCityMD">Télefono</label>
-
-          <input  formControlName="telefono" type="text" class="form-control" id="inputCityMD" placeholder="">
-        </div>
-      </div>
-  
-      <div class="col-md-6">
-        <div class="md-form form-group">
-          <label for="inputZipMD">direccion</label>
-
-          <input  formControlName="direccion" type="text" class="form-control" id="inputZipMD" placeholder="c/ Plaza España">
+          <label for="genero">Genero</label>
+          <ng-select
+                   [items]="items"
+            formControlName="genero"
+          >
+          </ng-select>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="md-form form-group">
-          <label for="inputZipMdD">Tipo</label>
-          <select name="miselect" [(ngModel)]="seleccionado">
-            <option [value]="item" *ngFor="let item of lista">{{item}}</option>
-            </select>
-          <input  formControlName="tipo" type="text" class="form-control" id="inputZipMdD" placeholder="c/ Plaza España">
+          <label for="Alérgias">Alérgias</label>
+
+          <input
+                     formControlName="alergias"
+            type="text"
+            class="form-control"
+            id="Alérgias"
+            placeholder=""
+          />
         </div>
       </div>
-
     </div>
+
+    <div class="col-md-6" >
+      <div class="md-form form-group">
+        <label for="clase">Añadir a clase:</label>
+        <input
+          formControlName="id_clase"
+          type="text"
+          class="form-control"
+          id="clase"
+          placeholder=""
+        />
+      </div>
+    </div>
+
     <div class="d-flex justify-content-center">
-    <button type="submit" mdbBtn color="primary">Sign in</button>
-  </div>
+      <button type="submit" mdbBtn color="primary">Aceptar</button>
+    </div>
   </form>-->
 </div>
