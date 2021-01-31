@@ -8,6 +8,7 @@ import { DatosComponent } from './pages/datos/datos.component';
 import { InfoComponent } from './pages/info/info.component';
 import { CreacionComponent } from './pages/creacion/creacion.component';
 import { AlumnoComponent } from './pages/alumno/alumno.component';
+import { ModificarComponent } from './pages/modificar/modificar.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +19,8 @@ const routes: Routes = [
   {path: 'info', component: InfoComponent},
   {path: 'creacion', component: CreacionComponent},
   {path: 'alumno/:id', component: AlumnoComponent},
+  {path: 'modificar/:tipo/:id', component: ModificarComponent},
+
 ];
 
 @NgModule({

@@ -38,6 +38,9 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { AlumnoComponent } from './pages/alumno/alumno.component';
 import { EditarComponent } from './components/editar/editar.component';
+import { ModificarComponent } from './pages/modificar/modificar.component';
+import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
+import { EditarClaseComponent } from './components/editar-clase/editar-clase.component';
  // a plugin
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -68,6 +71,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ClaseComponent,
     AlumnoComponent,
     EditarComponent,
+    ModificarComponent,
+    EditarUsuarioComponent,
+    EditarClaseComponent,
   ],
   imports: [
     BrowserModule,

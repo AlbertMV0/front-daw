@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/usuario.service';
+import { ActivatedRoute, Router } from '@angular/router';
 //import { runInThisContext } from 'vm';
 
 @Component({
@@ -10,7 +11,7 @@ import { UserService } from 'src/app/services/usuario.service';
 
 export class UsuariosComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private router: Router) { }
 
   usuarios: any;
   totalItems: number;
@@ -36,5 +37,8 @@ export class UsuariosComponent implements OnInit {
     }));
   }
 
+  public editUsuario(usuario){
+    this.router.navigate(['modificar/usuarios/'+usuario.id]);
+  }
 
 }

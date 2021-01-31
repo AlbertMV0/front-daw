@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/usuario.service';
 import { AlumnoService } from 'src/app/services/alumno.service';
 import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-editar',
   templateUrl: './editar.component.html',

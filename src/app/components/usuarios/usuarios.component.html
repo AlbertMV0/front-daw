@@ -13,6 +13,7 @@
         <th scope="col" class="d-none d-md-table-cell">Tipo</th>
         <th scope="col">Alumno</th>
         <th scope="col">Clase</th>
+        <th scope="col">Acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -38,6 +39,24 @@
           </span>
         </td>
         <td>{{ usuario.clase }}</td>
+        <td>
+          <div class="btn-group-vertical">
+            <button
+              type="button"
+              class="btn btn-danger rounded-top"
+              (click)=editUsuario(usuario)
+            >
+              Modificar
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger rounded-top"
+              (click)="borrarUsuario(usuario)"
+            >
+              Borrar
+            </button>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -51,5 +70,7 @@
 ></ngb-pagination>
 
 <div class="d-flex justify-content-center div-button">
-  <button type="button" class="btn btn-primary" routerLink="/creacion" >Crear Usuario</button>
+  <button type="button" class="btn btn-primary" routerLink="/creacion">
+    Crear Usuario
+  </button>
 </div>
