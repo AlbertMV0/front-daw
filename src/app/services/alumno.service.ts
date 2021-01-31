@@ -11,29 +11,70 @@ import { map } from 'rxjs/operators';
 })
 export class AlumnoService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  
-  getAlumno(id:any): Observable<any> {
 
+  getAlumno(id: any): Observable<any> {
     const params = new HttpParams().set('id', id);
-  const httpOptions = {
-    headers: new HttpHeaders({
-      Accept: 'application/json',
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'X-Requested-With': 'XMLHttpRequest',
-      Authorization: 'Bearer ' + localStorage.getItem('token'),
-    }),
-  };
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Requested-With': 'XMLHttpRequest',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
 
-    return this.http.post('http://localhost:8000/api/getAlumno',params,httpOptions).pipe(
+    return this.http.post('http://localhost:8000/api/getAlumno', params, httpOptions).pipe(
       map((results) => {
         console.log(results);
         return results;
-      },(error) => {
+      }, (error) => {
         console.log("error de la api");
         console.log(error);
       }));
-  
-}
+  }
+
+  addComentario(data:any): Observable<any> {
+    const params = new HttpParams().set('id_alumno', data.id_alumno)
+    .set('comentario', data.comentario);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Requested-With': 'XMLHttpRequest',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+
+    return this.http.post('http://localhost:8000/api/getAlumno', params, httpOptions).pipe(
+      map((results) => {
+        console.log(results);
+        return results;
+      }, (error) => {
+        console.log("error de la api");
+        console.log(error);
+      }));
+  }
+
+  verComentario(id:any): Observable<any> {
+    const params = new HttpParams().set('id_alumno', id)
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Requested-With': 'XMLHttpRequest',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+
+    return this.http.post('http://localhost:8000/api/verComentarios', params, httpOptions).pipe(
+      map((results) => {
+        console.log(results);
+        return results;
+      }, (error) => {
+        console.log("error de la api");
+        console.log(error);
+      }));
+  }
 }
