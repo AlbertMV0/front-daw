@@ -29,6 +29,8 @@ export class ModificarComponent implements OnInit {
       this.alumnos = true;
     } else if (tipo == "clases") {
       this.clases = true;
+    }else{
+      this.usuarios = true;
     }
   }
 }

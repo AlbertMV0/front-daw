@@ -20,6 +20,7 @@ const routes: Routes = [
   {path: 'creacion', component: CreacionComponent},
   {path: 'alumno/:id', component: AlumnoComponent},
   {path: 'modificar/:tipo/:id', component: ModificarComponent},
+  {path: 'cambiarDatos', component: ModificarComponent},
 
 ];
 

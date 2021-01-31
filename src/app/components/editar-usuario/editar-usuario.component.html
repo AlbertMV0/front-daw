@@ -54,29 +54,7 @@
              <input  formControlName="direccion" type="text" class="form-control" id="inputZipMD" placeholder="{{userMostrar.direccion}}">
            </div>
          </div>
-   
-       <!-- <div *ngIf="selectedSimpleItem == 'Padre/Tutor legal'" class="col-md-6">
-           <div class="md-form form-group">
-             <label for="id_alumno">Id Alumno</label>
-   
-             <input  formControlName="id_alumno" type="number" class="form-control" id="id_alumno" placeholder="">
-           </div>
-         </div>
-         <div *ngIf="selectedSimpleItem == 'Profesor'" class="col-md-3">
-           <div class="md-form form-group">
-             <label for="id_clase">Id Clase</label>
-   
-             <input  formControlName="id_clase" type="number" class="form-control" id="id_clase" placeholder="">
-           </div>
-         </div>
-                <div class="container_alumnos" *ngIf="selectedSimpleItem == 'Profesor'">
-                  <app-clases></app-clases>
-                </div>
-                <div class="container_alumnos" *ngIf="selectedSimpleItem == 'Padre/Tutor legal'">
-                 <app-alumnos></app-alumnos>
-               </div>
-   -->
-   <div class="col-md-6">
+   <div *ngIf="nivel == 2" class="col-md-6">
     <div class="md-form form-group">
       <label for="hijo">Añadir hijo</label>
 

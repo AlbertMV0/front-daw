@@ -16,7 +16,8 @@ export class EditarUsuarioComponent implements OnInit {
   userForm: FormGroup;
   user: any;
   userMostrar: any;
-
+  nivel:any;
+  
   ngOnInit() {
     this.userForm = this.form_builder.group({
 
@@ -49,6 +50,7 @@ export class EditarUsuarioComponent implements OnInit {
       }));
       this.userService.getLoggedUser().subscribe((result => {
         this.user = result;
+        this.nivel=this.user.nivel;
       }));
     }
   }
