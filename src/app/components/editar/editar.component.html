@@ -10,7 +10,7 @@
             type="text"
             class="form-control"
             id="inputEmail4MD"
-            placeholder="Nombre"
+            placeholder="{{alumno.nombre}}"
           />
         </div>
       </div>
@@ -22,7 +22,7 @@
             formControlName="apellidos"
             class="form-control"
             id="inputPassword4MD"
-            placeholder="Apellidos"
+            placeholder="{{alumno.apellidos}}"
           />
         </div>
       </div>
@@ -38,7 +38,7 @@
             type="text"
             class="form-control"
             id="inputAddressMD"
-            placeholder=""
+            placeholder="{{alumno.edad}}"
           />
         </div>
       </div>
@@ -52,7 +52,7 @@
             type="text"
             class="form-control"
             id="inputAddress2MD"
-            placeholder=""
+            placeholder="{{alumno.aficiones}}"
           />
         </div>
       </div>
@@ -65,7 +65,7 @@
           <ng-select
           [readonly]="genero"
             [items]="items"
-            formControlName="genero"
+            formControlName="{{alumno.genero}}"
           >
           </ng-select>
         </div>
@@ -80,7 +80,7 @@
             type="text"
             class="form-control"
             id="inputZipMD"
-            placeholder=""
+            placeholder="{{alumno.alergias}}"
           />
         </div>
       </div>

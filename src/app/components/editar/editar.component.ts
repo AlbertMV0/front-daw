@@ -53,6 +53,8 @@ export class EditarComponent implements OnInit {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.alumnoService.getAlumno(id).subscribe((result=>{
       this.alumno=result;
+      console.log(this.alumno);
+      
     }));
     this.alumnoForm = this.form_builder.group({
       nombre: [null, [Validators.pattern('[a-zA-ZÑñ ]*')]],//[null,Validators.compose([Validators.email,Validators.required])]
@@ -67,8 +69,17 @@ export class EditarComponent implements OnInit {
   }
 
   public modificar(){
+    const formData = this.alumnoForm.getRawValue();
+    console.log(formData);
+
+    const data = { nombre: formData.nombre,
+      genero: formData.genero,
+      apellidos: formData.apellidos, aficiones: formData.aficiones, alergias: formData.alergias
+    };
 
     if(this.alumnoForm.valid){
+      console.log("Valid");
+      console.log(data);
       
     }
   }
