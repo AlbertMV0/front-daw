@@ -1,8 +1,8 @@
 <div class="container">
     <div class="row">
     <app-editar class="col-sm-12 col-lg-6"></app-editar>
-    <full-calendar [options]="calendarOptions"  class="col-sm-12 col-lg-6"></full-calendar>
-    <div class="row comentario-row">
+    <full-calendar [options]="calendarOptions" class="col-sm-12 col-lg-6"></full-calendar>
+    <div class="row comentario-row" *ngIf="nivel==1">
         <form [formGroup]="comentarioForm" (ngSubmit)="enviarComentario()">
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Example textarea</label>

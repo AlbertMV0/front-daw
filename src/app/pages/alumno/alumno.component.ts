@@ -16,6 +16,7 @@ export class AlumnoComponent implements OnInit {
   constructor( private router: Router,private form_builder: FormBuilder, private userService: UserService, private alumnoService: AlumnoService, private activatedRoute: ActivatedRoute,) { }
 
   user: any;
+  nivel:any;
   alumno: any;
   id:any;
 
@@ -48,6 +49,7 @@ export class AlumnoComponent implements OnInit {
 
     this.userService.getLoggedUser().subscribe((result => {
       this.user = result;
+      this.nivel=this.user.nivel;
     }));
     this.comentarioForm = this.form_builder.group({
       comentario: [null, [Validators.required]],//[null,Validators.compose([Validators.email,Validators.required])]

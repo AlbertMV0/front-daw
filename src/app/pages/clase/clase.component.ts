@@ -38,10 +38,30 @@ export class ClaseComponent extends Metodos implements OnInit {
     }));
 
     this.usuarioDatos().subscribe((result => { 
+      let continuar=true;
+
       this.user = result; 
       if (this.user.nivel == 1) {
         this.alumnos.forEach(element => {
           element.disponible = true;
+        });
+      }else if (this.user.nivel == 0) {
+        this.alumnos.forEach(alumnoClase => {
+
+          this.user.alumnos.forEach(element => {
+            if(alumnoClase.id_alumno==element.id_alumno){
+              console.log(alumnoClase.id_alumno + " true "+ element.id_alumno);
+              
+              alumnoClase.disponible=true;
+              continuar=false;
+            }else if(continuar){
+              console.log(alumnoClase.id_alumno + " false  "+ element.id_alumno);
+              alumnoClase.disponible=false;
+              continuar=true;
+            }
+          });
+          
+
         });
       }
     }));
