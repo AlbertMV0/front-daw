@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/usuario.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-clases',
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/services/usuario.service';
 })
 export class ClasesComponent implements OnInit {
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService,private router: Router) { }
   clases: any;
 
   ngOnInit(): void {
@@ -21,4 +22,7 @@ export class ClasesComponent implements OnInit {
     }));
   }
 
+  public editClase(clase){
+    this.router.navigate(['modificar/clases/'+clase.id_clase]);
+  }
 }

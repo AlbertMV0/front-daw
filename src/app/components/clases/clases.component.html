@@ -6,6 +6,7 @@
       <th scope="col">#Clase</th>
       <th scope="col" class="d-none d-md-table-cell">Nombre</th>
       <th scope="col" class="d-none d-md-table-cell">Profesor</th>
+      <th scope="col" class="d-none d-md-table-cell">Acciones</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +15,16 @@
       <td class="d-none d-md-table-cell"> {{clase.nombre_clase}} </td>
       <td class="d-none d-md-table-cell" *ngIf="clase.prof"> {{clase.prof}}({{clase.id_profesor}}) </td>
       <td class="d-none d-md-table-cell" *ngIf="!clase.prof">  </td>
+      <td>
+        <div class="btn-group-vertical">
+          <button
+            type="button"
+            class="btn btn-danger rounded-top"
+            (click)="editClase(clase)"
+          >
+            Modificar
+          </button>
+        </div>
     </tr>
   </tbody>
 </table>

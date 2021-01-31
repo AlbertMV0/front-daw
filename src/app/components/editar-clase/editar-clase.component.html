@@ -1,1 +1,50 @@
-<p>editar-clase works!</p>
+<div class="container">
+  <form [formGroup]="claseForm" (ngSubmit)="modificarClase()">
+    <div class="form-row">
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <label for="inputNombre">Nombre</label>
+          <input
+            formControlName="nombre"
+            type="text"
+            class="form-control"
+            id="inputNombre"
+            placeholder="{{clase.nombre_clase}}"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <label for="inputPassword4MD">Profesor</label>
+
+          <input
+          [readonly]="true"
+            class="form-control"
+            id="inputPassword4MD"
+            placeholder="{{clase.prof}} ({{clase.id_profesor}})"
+          />
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <label for="inputCambiar">Cambiar Profesor a:</label>
+
+          <input
+            formControlName="id_profesor"
+            class="form-control"
+            id="inputCambiar"
+            placeholder=""
+          />
+        </div>
+      </div>
+
+      <div class="container_alumnos">
+        <!--<app-usuarios></app-alumnos>-->
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <button type="submit" mdbBtn color="primary">Modificar</button>
+    </div>
+  </form>
+</div>
