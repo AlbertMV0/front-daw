@@ -1,21 +1,21 @@
-<div class="container">
-  <div class="row"><h2>Gestion General</h2></div>
-  <div class="row text-center">
-    <div class="col-4 box">
-      <h2 >Usuarios</h2>
-      <a class="btn btn-primary" (click)="assingComponent('usuarios')" role="button">usuarios</a>
+<div class="container col-md-10">
+  <!--<div class="row"><h2>Gestion General</h2></div>-->
+  <div class="row mt-2 text-center flex">
+    <div class="col-3 box md shadow p-3 mb-5 bg-white rounded">
+      <h2>Usuarios</h2>
+      <a class="btn btn-outline-primary" (click)="assingComponent('usuarios')" role="button">mostrar</a>
     </div>
-    <div class="col-4 box ">
+    <div class="col-3 box  shadow p-3 mb-5 bg-white rounded">
       <h2 >Clases</h2>
-      <a class="btn btn-primary" (click)="assingComponent('clases')" role="button">clases</a>
+      <a class="btn btn-outline-primary" (click)="assingComponent('clases')" role="button">mostrar</a>
     </div>
-    <div class="col-4 box">
+    <div class="col-3 box  shadow p-3 mb-5 bg-white rounded">
       <h2>Alumnos</h2>
-      <a class="btn btn-primary" (click)="assingComponent('alumnos')" role="button">alumnos</a>
+      <a class="btn btn-outline-primary" (click)="assingComponent('alumnos')" role="button">mostrar</a>
     </div>
+  </div>
+  <div class="container-component">
+    <ng-container *ngComponentOutlet="dummyComponent"></ng-container>
   </div>
 </div>
 
-<div class="cointainer container-component">
-    <ng-container *ngComponentOutlet="dummyComponent"></ng-container>
-</div>
