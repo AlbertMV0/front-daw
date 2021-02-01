@@ -23,7 +23,7 @@ export class AlumnoComponent implements OnInit {
   comentarioForm: FormGroup;
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
-    // bind is important!
+    locale:'es-Es',
     dateClick:function(info){
       alert("a");
       console.log("click");
