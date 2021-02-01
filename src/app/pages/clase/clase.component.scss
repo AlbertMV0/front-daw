@@ -1,9 +1,13 @@
 @media (min-width: 576px) {
   .card-columns .card {
     display: inline-block;
-    width: 80%;
+    width: 70%;
+    height: 350px;
   }
 }
 .profesor{
     max-width: 40%;
+}
+.card-footer{
+  margin-bottom: 0 !important;
 }

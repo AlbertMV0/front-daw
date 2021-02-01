@@ -25,14 +25,15 @@
           src="assets/images/profile.png"
           alt="Card image cap"
         />
-        <div class="card-body">
+        <div class="card-body text-center">
           <h5 class="card-title">{{ alumno.nombre }}</h5>
           <p class="card-text">
             {{ alumno.aficiones }}
           </p>
-          <p class="card-text">
-           <a href="" *ngIf="alumno.disponible" routerLink="/alumno/{{alumno.id_alumno}}">Ver información</a>
-          </p>
+          
+        </div>
+        <div class="card-footer text-center">
+          <a href="" *ngIf="alumno.disponible" routerLink="/alumno/{{alumno.id_alumno}}">Ver información</a>
         </div>
       </div>
     </div>

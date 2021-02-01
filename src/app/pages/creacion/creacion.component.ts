@@ -31,12 +31,12 @@ export class CreacionComponent implements OnInit {
     this.simpleItems = ["Profesor", 'Padre/Tutor legal'];
     //inicializamos la variable form
     this.userForm = this.form_builder.group({
-      nombre: [null, [Validators.required]],//[null,Validators.compose([Validators.email,Validators.required])]
-      apellidos: [null, Validators.required],
+      nombre: [null, [Validators.pattern('[a-zA-ZÑñ ]*'),Validators.required]],//[null,Validators.compose([Validators.email,Validators.required])]
+      apellidos: [null, [Validators.pattern('[a-zA-ZÑñ ]*'),Validators.required]],
       email: [null, [Validators.email, Validators.required]],
       password: [null, [Validators.required]],
-      telefono: ["", [Validators.maxLength(9)]],
-      direccion: ["", []],
+      telefono: [null, [Validators.pattern('[0-9]*'),Validators.maxLength(9)]],
+      direccion: [null, [Validators.required]],
       tipo: [null, [Validators.required]],
     });
 
@@ -86,7 +86,9 @@ export class CreacionComponent implements OnInit {
       );
     } else {
       console.log("usuario no valido");
-
+      this.mensajeError = 'No se ha podido crear el usuario. Revisa los datos introducidos.';
+    
+      this.error = true;
     }
   }
 
@@ -110,6 +112,10 @@ export class CreacionComponent implements OnInit {
       }));
       console.log("Valid");
       console.log(data);
+    }else{
+      this.mensajeError = 'No se ha podido crear el alumno. Revisa los datos introducidos.';
+    
+    this.error = true;
     }
   }
 

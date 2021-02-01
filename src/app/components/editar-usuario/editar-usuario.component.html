@@ -1,11 +1,22 @@
 <div class="container">
     <!-- <h1>Creando un nuevo Usuario</h1>-->
    <form  [formGroup]="userForm" (ngSubmit)="enviar()">
+    <div class="col-12 text-center" *ngIf="error=='error'">
+      <div class="alert alert-danger mb-4 animate__animated animate__fadeIn" role="alert">
+        {{ mensaje }}
+      </div>
+    </div>
+    <div class="col-12 text-center" *ngIf="error=='mostrar'">
+      <div class="alert alert-success mb-4 animate__animated animate__fadeIn" role="alert">
+        {{ mensaje }}
+      </div>
+    </div>
        <div class="form-row">
          <div class="col-md-6">
            <div class="md-form form-group">
              <label for="inputEmail4MD">Nombre</label>
              <input formControlName="nombre" type="text" class="form-control" id="inputEmail4MD" placeholder="{{userMostrar.name}}">
+             <div class="text-danger" *ngIf="userForm.get('nombre').hasError('nombre') && userForm.get('email').touched">Es necesario introducir un email válido</div>
             
            </div>
          </div>

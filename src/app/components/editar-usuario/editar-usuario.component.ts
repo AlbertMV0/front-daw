@@ -17,7 +17,9 @@ export class EditarUsuarioComponent implements OnInit {
   user: any;
   userMostrar: any;
   nivel:any;
-  
+  error:any;
+  errorMensaje:any;
+  mensaje:any;
   ngOnInit() {
     this.userForm = this.form_builder.group({
 
@@ -75,8 +77,12 @@ export class EditarUsuarioComponent implements OnInit {
         (resultado: any) => {
           console.log("Usuario actualizado");
           console.log(resultado);
+          this.error="mostrar";
+          this.mensaje="Datos modificados. Recarge la página para visualizarlos."
         },
         error => {
+          this.error="error";
+          this.mensaje="Error al modificar los datos. Reviso que sean correctos.";
           console.log("Error");
           console.log(error);
          //this.mensajeError = 'Tiene que introducir unos datos válidos';
@@ -85,7 +91,8 @@ export class EditarUsuarioComponent implements OnInit {
       );
     } else {
       console.log("usuario no valido");
-
+      this.error="error";
+      this.mensaje="Error al modificar los datos. Reviso que sean correctos.";
     }
   }
 
