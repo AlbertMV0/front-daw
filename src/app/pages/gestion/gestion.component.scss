@@ -2,19 +2,13 @@ body{
     background-color: yellow;
 }
 .box{
-    //border: 1px solid black;
+    border: 1px solid black;
     background-color:#ffff;
 }
 
 .container-component{
-    //border: 1px solid black;
-    //min-height: 200px;
-    margin-bottom: 100px;
-    
-   // margin-top: 50px;;
-}
+    border: 1px solid black;
+    min-height: 200px;
 
-.flex{
-    display: flex;
-    justify-content: space-around;
+    margin-top: 50px;;
 }

@@ -41,8 +41,6 @@ export class AlumnoComponent implements OnInit {
   }
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
-    
     this.alumnoService.getAlumno(this.id).subscribe((result => {
       this.alumno = result.alumno;
       console.log(this.alumno);
@@ -61,11 +59,10 @@ export class AlumnoComponent implements OnInit {
   public enviarComentario() {
     console.log(this.comentarioForm.getRawValue());
     const formData = this.comentarioForm.getRawValue();
-console.log(this.alumno);
-this.id = this.activatedRoute.snapshot.paramMap.get('id');
+
     const data = {
       comentario: formData.comentario,
-      id_alumno:this.id ,
+      id_alumno:this.alumno.id_alumno,
     };
     if (this.comentarioForm.valid) {
       console.log(data);
