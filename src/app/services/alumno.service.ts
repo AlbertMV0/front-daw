@@ -133,4 +133,27 @@ export class AlumnoService {
         console.log(error);
       }));
   }
+
+  
+  deleteAlumno(id: any): Observable<any> {
+    const params = new HttpParams().set('id_alumno', id);
+
+    const httpOptions = {
+      headers: new HttpHeaders({
+        Accept: 'application/json',
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'X-Requested-With': 'XMLHttpRequest',
+        Authorization: 'Bearer ' + localStorage.getItem('token'),
+      }),
+    };
+
+    return this.http.post('http://localhost:8000/api/deleteAlumno', params, httpOptions).pipe(
+      map((results) => {
+        console.log(results);
+        return results;
+      }, (error) => {
+        console.log("error de la api");
+        console.log(error);
+      }));
+  }
 }
