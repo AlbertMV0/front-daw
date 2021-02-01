@@ -13,7 +13,7 @@ export class MapComponent implements OnInit {
   title = 'Como usar el Componente Google Maps de Angular 9';
 
   // Configuración de Google Maps
-
+  
   lat = 22.2736308;
   long = 70.7512555;
 }

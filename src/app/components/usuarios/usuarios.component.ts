@@ -41,4 +41,11 @@ export class UsuariosComponent implements OnInit {
     this.router.navigate(['modificar/usuarios/'+usuario.id]);
   }
 
+  public borrarUsuario(usuario){
+    this.userService.deleteUser(usuario.id).subscribe((result=>{
+      console.log("borrado");
+      
+    }));
+  }
+
 }

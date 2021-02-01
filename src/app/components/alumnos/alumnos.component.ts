@@ -36,4 +36,8 @@ export class AlumnosComponent implements OnInit {
   public editAlumno(alumno) {
     this.router.navigate(['modificar/alumnos/'+alumno.id_alumno]);
   }
+
+  public borrarAlumno(alumno) {
+    
+  }
 }
