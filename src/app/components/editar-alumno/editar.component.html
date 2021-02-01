@@ -1,107 +1,121 @@
-<div class="container">
-  <form [formGroup]="alumnoForm" (ngSubmit)="modificar()">
-    <div class="form-row">
-      <div class="col-md-6">
+<div
+  class="card col-9 col-md-8 col-lg-6 text-center my-4 mx-auto p-0 shadow-lg rounded"
+>
+  <h5 class="card-header">Cambiar Datos</h5>
+  <div class="card-body">
+    <form [formGroup]="alumnoForm" (ngSubmit)="modificar()">
+      <div class="form-row">
+        <div class="col-md-6">
+          <div class="md-form form-group">
+            <label for="inputEmail4MD">Nombre</label>
+            <input
+              [readonly]="nombre"
+              formControlName="nombre"
+              type="text"
+              class="form-control"
+              id="inputEmail4MD"
+              placeholder="{{ alumno.nombre }}"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="md-form form-group">
+            <label for="inputPassword4MD">Apellidos</label>
+
+            <input
+              [readonly]="apellidos"
+              formControlName="apellidos"
+              class="form-control"
+              id="inputPassword4MD"
+              placeholder="{{ alumno.apellidos }}"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="md-form form-group">
+            <label for="inputAddressMD">Edad</label>
+
+            <input
+              [readonly]="edad"
+              formControlName="edad"
+              type="text"
+              class="form-control"
+              id="inputAddressMD"
+              placeholder="{{ alumno.edad }}"
+            />
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="md-form form-group">
+            <label for="inputAddress2MD">Aficiones</label>
+
+            <input
+              [readonly]="aficiones"
+              formControlName="aficiones"
+              type="text"
+              class="form-control"
+              id="inputAddress2MD"
+              placeholder="{{ alumno.aficiones }}"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="col-md-6">
+          <div class="md-form form-group">
+            <label for="Género">Género</label>
+            <ng-select
+              [readonly]="genero"
+              [items]="items"
+              formControlName="{{ alumno.genero }}"
+            >
+            </ng-select>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="md-form form-group">
+            <label for="inputZipMD">Alérgias</label>
+
+            <input
+              [readonly]="alergias"
+              formControlName="alergias"
+              type="text"
+              class="form-control"
+              id="inputZipMD"
+              placeholder="{{ alumno.alergias }}"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6" *ngIf="!id_clase">
         <div class="md-form form-group">
-          <label for="inputEmail4MD">Nombre</label>
-          <input  [readonly]="nombre"
-            formControlName="nombre"
+          <label for="inputMD">Cambiar de clase a:</label>
+          <input
+            formControlName="cambioClase"
             type="text"
             class="form-control"
-            id="inputEmail4MD"
-            placeholder="{{alumno.nombre}}"
-          />
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="md-form form-group">
-          <label for="inputPassword4MD">Apellidos</label>
-
-          <input  [readonly]="apellidos"
-            formControlName="apellidos"
-            class="form-control"
-            id="inputPassword4MD"
-            placeholder="{{alumno.apellidos}}"
-          />
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <div class="md-form form-group">
-          <label for="inputAddressMD">Edad</label>
-
-          <input  [readonly]="edad"
-            formControlName="edad"
-            type="text"
-            class="form-control"
-            id="inputAddressMD"
-            placeholder="{{alumno.edad}}"
+            id="inputMD"
+            placeholder="Actual: {{ alumno.id_clase }}"
           />
         </div>
       </div>
 
-      <div class="col-md-12">
-        <div class="md-form form-group">
-          <label for="inputAddress2MD">Aficiones</label>
-
-          <input  [readonly]="aficiones"
-            formControlName="aficiones"
-            type="text"
-            class="form-control"
-            id="inputAddress2MD"
-            placeholder="{{alumno.aficiones}}"
-          />
-        </div>
+      <div class="d-flex justify-content-center">
+        <button
+          type="submit"
+          class="btn btn-info btn-block my-4"
+          color="primary"
+        >
+          Aceptar
+        </button>
       </div>
-    </div>
-
-    <div class="form-row">
-      <div class="col-md-6">
-        <div class="md-form form-group">
-          <label for="Género">Género</label>
-          <ng-select
-          [readonly]="genero"
-            [items]="items"
-            formControlName="{{alumno.genero}}"
-          >
-          </ng-select>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="md-form form-group">
-          <label for="inputZipMD">Alérgias</label>
-
-          <input  [readonly]="alergias"
-            formControlName="alergias"
-            type="text"
-            class="form-control"
-            id="inputZipMD"
-            placeholder="{{alumno.alergias}}"
-          />
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-6" *ngIf="!id_clase">
-      <div class="md-form form-group">
-        <label for="inputMD">Cambiar de clase a:</label>
-        <input 
-          formControlName="cambioClase"
-          type="text"
-          class="form-control"
-          id="inputMD"
-          placeholder="Actual: {{alumno.id_clase}}"
-        />
-      </div>
-    </div>
-  
-
-
-    <div class="d-flex justify-content-center">
-      <button type="submit" mdbBtn color="primary">Aceptar</button>
-    </div>
-  </form>
+    </form>
+  </div>
 </div>
