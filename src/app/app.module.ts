@@ -29,8 +29,6 @@ import { MapComponent } from './components/map/map.component';
 //import { GoogleMapsModule } from '@angular/google-maps';
 //import { AgmCoreModule } from '@agm/core';
 import { CreacionComponent } from './pages/creacion/creacion.component';
-import { CreacionUsuarioComponent } from './components/creacion-usuario/creacion-usuario.component';
-import { CreacionAlumnoComponent } from './components/creacion-alumno/creacion-alumno.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FormsModule } from '@angular/forms';
 import { FullCalendarModule } from '@fullcalendar/angular'; // the main connector. must go first
@@ -66,8 +64,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     InfoComponent,
     MapComponent,
     CreacionComponent,
-    CreacionUsuarioComponent,
-    CreacionAlumnoComponent,
     ClaseComponent,
     AlumnoComponent,
     EditarComponent,
