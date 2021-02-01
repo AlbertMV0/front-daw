@@ -24,17 +24,12 @@ export class AlumnoComponent implements OnInit {
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
     locale:'es-Es',
-    dateClick:function(info){
-      alert("a");
-      console.log("click");
+    eventClick(event){
+      alert("Comentario del profesor: "+event.event.title);
+      console.log(event);
       
-    }
-
+    },
   };
-  events: [
-    { title: 'event 1', date: '2021-01-01' },
-    { title: 'alsdalsdlsadlsadlsd', date: '2021-01-30' }
-  ]
 
   handleDateClick(arg) {
     alert('date click! ' + arg.dateStr)

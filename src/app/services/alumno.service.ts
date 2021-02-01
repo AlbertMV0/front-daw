@@ -103,7 +103,7 @@ export class AlumnoService {
       }),
     };
 
-    return this.http.post('http://localhost:8000/api/getAlumno', params, httpOptions).pipe(
+    return this.http.post('http://localhost:8000/api/addComentario', params, httpOptions).pipe(
       map((results) => {
         console.log(results);
         return results;
