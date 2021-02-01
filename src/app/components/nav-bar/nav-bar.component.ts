@@ -26,6 +26,7 @@ export class NavBarComponent extends Metodos implements OnInit {
         console.log(this.alumnos);
       }else if(this.loggedUser.nivel == 1){
         this.clase=this.loggedUser.clase;
+        console.log(this.clase);
       }
     }));
   }
@@ -47,9 +48,7 @@ export class NavBarComponent extends Metodos implements OnInit {
   }
 
   public verClase() {
-   
-
-    // this.router.navigate(['clase/']);
+ this.router.navigate(['clase/'+this.clase.id_clase]);
   }
 }
 
