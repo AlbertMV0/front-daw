@@ -143,6 +143,7 @@ export class UserService {
     return this.http.get('http://localhost:8000/api/logout', httpOptions).pipe(
       map((results) => {
         this.usuarioLogeado = null;
+        localStorage.removeItem('token');
         console.log(results);
         return results;
       })
