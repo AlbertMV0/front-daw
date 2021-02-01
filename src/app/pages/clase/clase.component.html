@@ -1,7 +1,11 @@
 <div class="container">
-  <h1></h1>
+  <div class="row d-flex justify-content-center text-align">
+    <h1 class="font-weight-light my-5">
+      Clase de los {{ clase.nombre_clase }}
+    </h1>
+  </div>
   <div class="row-profesor d-flex justify-content-center mb-5">
-    <div class="card profesor">
+    <!-- <div class="card profesor">
       <img
         class="card-img-top"
         src="assets/images/profile.png"
@@ -14,28 +18,52 @@
           <small class="text-muted">Last updated 3 mins ago</small>
         </p>
       </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="card-columns">
-      <div *ngFor="let alumno of alumnos" class="card">
-        <img
-          class="card-img-top"
-          src="assets/images/profile.png"
-          alt="Card image cap"
-        />
-        <div class="card-body text-center">
-          <h5 class="card-title">{{ alumno.nombre }}</h5>
-          <p class="card-text">
-            {{ alumno.aficiones }}
-          </p>
-          
-        </div>
-        <div class="card-footer text-center">
-          <a href="" *ngIf="alumno.disponible" routerLink="/alumno/{{alumno.id_alumno}}">Ver información</a>
+    </div>-->
+    <div class="col-lg-5 col-md-8 profesor">
+      <div class="card text-center bg-white rounded">
+        <div class="card-body">
+          <img
+            src="assets/images/teacher.svg"
+            alt="foto-niña"
+            class="img-fluid rounded-circle w-50 mb-3"
+          />
+          <h1 class="mb-2">{{ profesor.name }}</h1>
+          <h3>Email:</h3>
+          <p>{{ profesor.email }}</p>
+          <h3 *ngIf="profesor.telefono != null">Telefono:</h3>
+          <p *ngIf="profesor.telefono != null">{{ profesor.telefono }}</p>
         </div>
       </div>
     </div>
   </div>
+
+  <section id="team">
+    <div class="container my-3 py-5 text-center">
+      <div class="row d-flex justify-content-around">
+        <div
+          *ngFor="let alumno of alumnos"
+          class="card bg-white rounded col-lg-3 col-md-6 mx-2 my-5"
+        >
+          <div class="card-body">
+            <img
+              *ngIf="alumno.genero == 'Hombre'"
+              src="assets/images/child-boy.png"
+              alt="foto-niña"
+              class="img-fluid rounded-circle w-50 mb-3"
+            />
+            <img
+              *ngIf="alumno.genero == 'Mujer'"
+              src="assets/images/child-girl.png"
+              alt="foto-niña"
+              class="img-fluid rounded-circle w-50 mb-3"
+            />
+            <h2>{{ alumno.nombre }}</h2>
+            <h6>Lo que mas le gusta es:</h6>
+            <p>{{ alumno.aficiones }}</p>
+            <a *ngIf="alumno.disponible" routerLink="/alumno/{{alumno.id_alumno}}">Ver informacion</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </div>

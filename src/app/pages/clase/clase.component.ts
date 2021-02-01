@@ -29,10 +29,11 @@ export class ClaseComponent extends Metodos implements OnInit {
       console.log("ver clase");
       this.clase = result;
       this.alumnos = this.clase.alumnos;
+      this.profesor=this.clase.profesor;
       console.log(this.clase);
       console.log(this.user);
       console.log( this.alumnos);
-      
+      console.log(this.profesor);      
     }), (error => {
       console.log("error");
     }));

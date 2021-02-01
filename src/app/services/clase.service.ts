@@ -14,7 +14,7 @@ export class ClaseService {
 
   getClase(id: any): Observable<any> {
 
-    const params = new HttpParams().set('id', id);
+    const params = new HttpParams().set('id_clase', id);
 
     const httpOptions = {
       headers: new HttpHeaders({
