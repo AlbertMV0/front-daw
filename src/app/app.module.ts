@@ -20,10 +20,7 @@ import { ClasesComponent } from './components/clases/clases.component';
 import { ClaseComponent } from './pages/clase/clase.component';
 import { AlumnoService } from './services/alumno.service';
 import { ClaseService } from './services/clase.service';
-import { DatosComponent } from './pages/datos/datos.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { DatosPersonalesComponent } from './components/datos-personales/datos-personales.component';
-import { RegistrarComponent } from './components/registrar/registrar.component';
 import { InfoComponent } from './pages/info/info.component';
 import { MapComponent } from './components/map/map.component';
 //import { GoogleMapsModule } from '@angular/google-maps';
@@ -57,10 +54,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     UsuariosComponent,
     AlumnosComponent,
     ClasesComponent,
-    DatosComponent,
     FooterComponent,
-    DatosPersonalesComponent,
-    RegistrarComponent,
     InfoComponent,
     MapComponent,
     CreacionComponent,

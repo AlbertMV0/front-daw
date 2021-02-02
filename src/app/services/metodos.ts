@@ -10,25 +10,16 @@ export class Metodos {
   }
 
   public get isLoggedIn(): boolean {
-    //console.log(this.userService.usuarioLogeado);
-    if(!this.userService.usuarioLogeado){
+    if (!this.userService.usuarioLogeado) {
       return false;
-    }else{
-      //console.log(this.userService.usuarioLogeado.nivel);
+    } else {
       return this.userService.getNivelUsuario() >= 0;
     }
   }
-  
- /* public get userLevel(): EUsuNivel {
-    return this.userService.getUserLevel();
-  }
 
-  public get isLogeado(): boolean {
-    return this.userService.getUserLevel() > 0;
-  }*/
 
   public get userLevel(): any {
-    return this.userService.getLoggedUser() ?  this.userService.usuarioLogeado['nivel'] : -1 ;
+    return this.userService.getLoggedUser() ? this.userService.usuarioLogeado['nivel'] : -1;
   }
 
   public get isPadre(): boolean {

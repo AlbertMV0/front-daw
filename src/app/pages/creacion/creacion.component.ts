@@ -54,7 +54,6 @@ export class CreacionComponent implements OnInit {
 
   public enviar(): void {
     const formData = this.userForm.getRawValue();
-    console.log();
 
     const data = {
       nombre: formData.nombre,
@@ -71,8 +70,6 @@ export class CreacionComponent implements OnInit {
       } else {
         data['tipo'] = 0;
       }
-      console.log(data['tipo']);
-
       this.userService.registerUser(data).subscribe(
         (resultado: any) => {
           console.log("Usuario creado");

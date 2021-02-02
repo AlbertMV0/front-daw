@@ -29,7 +29,6 @@ export class UsuariosComponent implements OnInit {
         this.totalItems = result.length;
         this.showPagination = true;
       }
-      console.log(result);
       this.usuarios = result;
     }), (error => {
       console.log("Error " + error);
@@ -44,7 +43,6 @@ export class UsuariosComponent implements OnInit {
   public borrarUsuario(usuario){
     this.userService.deleteUser(usuario.id).subscribe((result=>{
       console.log("borrado");
-      
     }));
   }
 

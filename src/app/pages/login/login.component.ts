@@ -13,11 +13,10 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   mensajeError: string;
-error:boolean;
-  constructor(private form_builder: FormBuilder, private http: HttpClient,private userService:UserService, private router: Router ) { }
+  error: boolean;
+  constructor(private form_builder: FormBuilder, private http: HttpClient, private userService: UserService, private router: Router) { }
 
   ngOnInit() {
-    //inicializamos la variable form
     this.loginForm = this.form_builder.group({
       email: [null, [Validators.email, Validators.required]],//[null,Validators.compose([Validators.email,Validators.required])]
       password: [null, Validators.required]
@@ -26,38 +25,20 @@ error:boolean;
   }
   public enviar(): void {
     const formData = this.loginForm.getRawValue();
-    const data={email:formData.email,password:formData.password};
-    console.log(data);
-    
+    const data = { email: formData.email, password: formData.password };
+
     if (this.loginForm.valid) {
-    this.userService.login(data).subscribe(
-      (usuario:any)  =>
-      {
-        this.router.navigate(['']);
-        console.log("Correcto");
-        console.log(usuario);
-      },
-      error => {
-        console.log("Error");
-        console.log(error);
-        this.mensajeError = 'Tiene que introducir unos datos válidos';
-        this.error = true;
-      }
-    );
+      this.userService.login(data).subscribe(
+        (usuario: any) => {
+          this.router.navigate(['']);
+        },
+        error => {
+          console.log(error);
+          this.mensajeError = 'Tiene que introducir unos datos válidos';
+          this.error = true;
+        }
+      );
     }
   }
 }
 
-/*
-      this.userService.getUsuarios().subscribe(
-        (usuario:any)  =>
-        {
-          console.log("Correcto");
-          console.log(usuario);
-
-        },
-        error => {
-          console.log("Error");
-          console.log(error);
-        }
-      ); */

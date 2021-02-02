@@ -9,20 +9,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ClasesComponent implements OnInit {
 
-  constructor(private userService: UserService,private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
   clases: any;
 
   ngOnInit(): void {
     this.userService.getAllClases().subscribe((result => {
-      console.log(result);
       this.clases = result;
     }), (error => {
       console.log("Error " + error);
-
     }));
   }
 
-  public editClase(clase){
-    this.router.navigate(['modificar/clases/'+clase.id_clase]);
+  public editClase(clase) {
+    this.router.navigate(['modificar/clases/' + clase.id_clase]);
   }
 }

@@ -34,10 +34,8 @@ export class AlumnoService {
 
     return this.http.post('http://localhost:8000/api/editAlumno', params, httpOptions).pipe(
       map((results) => {
-        console.log(results);
         return results;
       }, (error) => {
-        console.log("error de la api");
         console.log(error);
       }));
   }
@@ -62,10 +60,8 @@ export class AlumnoService {
 
     return this.http.post('http://localhost:8000/api/createAlumno', params, httpOptions).pipe(
       map((results) => {
-        console.log(results);
         return results;
       }, (error) => {
-        console.log("error de la api");
         console.log(error);
       }));
   }
@@ -83,10 +79,8 @@ export class AlumnoService {
 
     return this.http.post('http://localhost:8000/api/getAlumno', params, httpOptions).pipe(
       map((results) => {
-        console.log(results);
         return results;
       }, (error) => {
-        console.log("error de la api");
         console.log(error);
       }));
   }
@@ -105,10 +99,8 @@ export class AlumnoService {
 
     return this.http.post('http://localhost:8000/api/addComentario', params, httpOptions).pipe(
       map((results) => {
-        console.log(results);
         return results;
       }, (error) => {
-        console.log("error de la api");
         console.log(error);
       }));
   }
@@ -126,10 +118,8 @@ export class AlumnoService {
 
     return this.http.post('http://localhost:8000/api/verComentarios', params, httpOptions).pipe(
       map((results) => {
-        console.log(results);
         return results;
       }, (error) => {
-        console.log("error de la api");
         console.log(error);
       }));
   }
@@ -149,10 +139,8 @@ export class AlumnoService {
 
     return this.http.post('http://localhost:8000/api/deleteAlumno', params, httpOptions).pipe(
       map((results) => {
-        console.log(results);
         return results;
       }, (error) => {
-        console.log("error de la api");
         console.log(error);
       }));
   }

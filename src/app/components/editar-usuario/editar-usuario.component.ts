@@ -36,21 +36,17 @@ export class EditarUsuarioComponent implements OnInit {
     });
     let tipo = this.activatedRoute.snapshot.paramMap.get('tipo');
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(tipo);
-    console.log(id);
     
     if (tipo == null || tipo == undefined) {
       this.userService.getLoggedUser().subscribe((result => {
         this.userMostrar = result;
         this.nivel=this.userMostrar.nivel;
-        console.log(this.userMostrar);
         console.log("cambiando el propio usuario");       
       }));
     } else {
       this.userService.getUser(id).subscribe((result => {
         this.userMostrar = result;
         console.log("cambiando desde administrador");
-        console.log(this.userMostrar);
       }));
       this.userService.getLoggedUser().subscribe((result => {
         this.user = result;
@@ -62,7 +58,6 @@ export class EditarUsuarioComponent implements OnInit {
   public enviar(): void {
    
     const formData = this.userForm.getRawValue();
-    console.log();
 
     const data = {
       id:this.userMostrar.id,
@@ -85,10 +80,7 @@ export class EditarUsuarioComponent implements OnInit {
         error => {
           this.error="error";
           this.mensaje="Error al modificar los datos. Reviso que sean correctos.";
-          console.log("Error");
-          console.log(error);
-         //this.mensajeError = 'Tiene que introducir unos datos válidos';
-         //this.error = true;
+        
         }
       );
     } else {

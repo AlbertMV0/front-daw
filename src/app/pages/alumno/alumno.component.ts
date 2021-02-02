@@ -13,21 +13,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AlumnoComponent implements OnInit {
 
-  constructor( private router: Router,private form_builder: FormBuilder, private userService: UserService, private alumnoService: AlumnoService, private activatedRoute: ActivatedRoute,) { }
+  constructor(private router: Router, private form_builder: FormBuilder, private userService: UserService, private alumnoService: AlumnoService, private activatedRoute: ActivatedRoute,) { }
 
   user: any;
-  nivel:any;
+  nivel: any;
   alumno: any;
-  id:any;
+  id: any;
 
   comentarioForm: FormGroup;
   calendarOptions: CalendarOptions = {
     initialView: 'dayGridMonth',
-    locale:'es-Es',
-    eventClick(event){
-      alert("Comentario del profesor: "+event.event.title);
-      console.log(event);
-      
+    locale: 'es-Es',
+    eventClick(event) {
+      alert("Comentario del profesor: " + event.event.title);
     },
   };
 
@@ -36,17 +34,15 @@ export class AlumnoComponent implements OnInit {
   }
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(this.id);
-    
+
     this.alumnoService.getAlumno(this.id).subscribe((result => {
       this.alumno = result.alumno;
-      console.log(this.alumno);
       this.getComentarios();
     }));
 
     this.userService.getLoggedUser().subscribe((result => {
       this.user = result;
-      this.nivel=this.user.nivel;
+      this.nivel = this.user.nivel;
     }));
     this.comentarioForm = this.form_builder.group({
       comentario: [null, [Validators.required]],//[null,Validators.compose([Validators.email,Validators.required])]
@@ -56,30 +52,27 @@ export class AlumnoComponent implements OnInit {
   public enviarComentario() {
     console.log(this.comentarioForm.getRawValue());
     const formData = this.comentarioForm.getRawValue();
-console.log(this.alumno);
-this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
     const data = {
       comentario: formData.comentario,
-      id_alumno:this.id ,
+      id_alumno: this.id,
     };
     if (this.comentarioForm.valid) {
-      console.log(data);
-      
+
       this.alumnoService.addComentario(data).subscribe((result => {
-         console.log("Comentario guardado");
-        // this.router.navigate(['alumno/'+this.alumno.id_alumno]);
+        console.log("Comentario guardado");
+        alert("Comentario guardado con éxito");
       }));
     }
   }
 
-  public getComentarios(){
-    this.alumnoService.verComentario(this.id).subscribe((result=>{
-      console.log(result);
+  public getComentarios() {
+    this.alumnoService.verComentario(this.id).subscribe((result => {
       result.forEach(element => {
         //this.calendarOptions.addEvent();
-        this.calendarOptions.events=[{title: element.comentario, date: element.fecha}];
+        this.calendarOptions.events = [{ title: element.comentario, date: element.fecha }];
       });
-     
+
     }));
   }
 

@@ -27,10 +27,8 @@ export class ClaseService {
 
     return this.http.post('http://localhost:8000/api/getClase', params, httpOptions).pipe(
       map((results) => {
-        console.log(results);
         return results;
       }, (error) => {
-        console.log("error de la api");
         console.log(error);
       }));
   }
@@ -52,10 +50,8 @@ export class ClaseService {
 
     return this.http.post('http://localhost:8000/api/editClase', params, httpOptions).pipe(
       map((results) => {
-        console.log(results);
         return results;
       }, (error) => {
-        console.log("error de la api");
         console.log(error);
       }));
   }
