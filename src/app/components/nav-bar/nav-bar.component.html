@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand " routerLink="">IES Virgen del Remedio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav w-100 justify-content-end ml-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
-      </li>
+    <ul class="navbar-nav w-100 justify-content-start ml-auto">
+
       <li class="nav-item">
-        <a class="nav-link" routerLink="/informacion">Consultar Información</a>
+        <a class="nav-link" routerLink="/info">Consultar Información</a>
       </li>
+    </ul>
+    <ul class="navbar-nav w-100 justify-content-end ml-auto">
       <!--<li>
         <a class="nav-link" *ngIf="isProfesor || isPadre"  routerLink="/clase">Ver Clase</a>
       </li>-->
@@ -24,7 +24,7 @@
         <a class="nav-link" *ngIf="isProfesor" (click)="verClase()">Ver Clase</a>
       </li>
       <li *ngIf="isPadre" class="nav-item dropdown">
-        <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown">Ver clase</a>
+        <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Ver clase</a>
          <ul class="dropdown-menu">
            <li *ngFor="let alumno of alumnos"><a class="dropdown-item"  routerLink="/clase/{{alumno.id_clase}}">Clase de {{alumno.nombre}}</a></li>
          </ul>
