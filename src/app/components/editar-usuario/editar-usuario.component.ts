@@ -42,6 +42,8 @@ export class EditarUsuarioComponent implements OnInit {
     if (tipo == null || tipo == undefined) {
       this.userService.getLoggedUser().subscribe((result => {
         this.userMostrar = result;
+        this.nivel=this.userMostrar.nivel;
+        console.log(this.userMostrar);
         console.log("cambiando el propio usuario");       
       }));
     } else {

@@ -13,7 +13,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let alumno of alumnos;let i=index;">
+    <tr
+        *ngFor="
+          let alumno of alumnos
+            | slice
+              : (activePage - 1) * itemsPerPage
+              : (activePage - 1) * itemsPerPage + itemsPerPage;
+          let i = index
+        "
+      >
         <td class="d-none d-md-table-cell"> {{alumno.id_alumno}} </td>
       <td class="d-none d-md-table-cell"> {{alumno.nombre}} </td>
       <td class="d-none d-md-table-cell"> {{alumno.apellidos}} </td>

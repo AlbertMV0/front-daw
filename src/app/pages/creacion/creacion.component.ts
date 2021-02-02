@@ -14,8 +14,9 @@ import { AlumnoService } from 'src/app/services/alumno.service';
 export class CreacionComponent implements OnInit {
 
   userForm: FormGroup;
-  mensajeError: string;
-  error: boolean;
+  mensaje: string;
+  error: any;
+  errorAlumno:any;
   opciones: string[] = ["Padre", "Profesor"];
   alumnoForm: FormGroup;
   items = ["Hombre", "Mujer"];
@@ -75,26 +76,24 @@ export class CreacionComponent implements OnInit {
       this.userService.registerUser(data).subscribe(
         (resultado: any) => {
           console.log("Usuario creado");
-          console.log(resultado);
+          this.mensaje = 'Usuario creado satisfactoriamente';
+          this.error = "mostrar";
         },
         error => {
-          console.log("Error");
-          console.log(error);
-          this.mensajeError = 'Tiene que introducir unos datos válidos';
-          this.error = true;
+          this.mensaje = 'No se ha podido crear el usuario. Revisa los datos introducidos.';
+          this.error = "error";
         }
       );
     } else {
       console.log("usuario no valido");
-      this.mensajeError = 'No se ha podido crear el usuario. Revisa los datos introducidos.';
+      this.mensaje = 'No se ha podido crear el usuario. Revisa los datos introducidos.';
     
-      this.error = true;
+      this.error = "error";
     }
   }
 
   public modificar() {
     const formData = this.alumnoForm.getRawValue();
-    console.log(formData);
     let data;
     data = {
       nombre: formData.nombre,
@@ -106,16 +105,18 @@ export class CreacionComponent implements OnInit {
     };
 
     if (this.alumnoForm.valid) {
-      console.log(data);
       this.alumnoService.registerAlumno(data).subscribe((result => {
-        console.log("alumno creado");
+        this.mensaje = 'Alumno creado satisfactoriamente';
+        this.errorAlumno = "mostrar";
+      }), (error => {
+        this.mensaje = 'No se ha podido crear el alumno. Revisa los datos introducidos.';
+        this.errorAlumno = "error";
       }));
-      console.log("Valid");
-      console.log(data);
+
     }else{
-      this.mensajeError = 'No se ha podido crear el alumno. Revisa los datos introducidos.';
+      this.mensaje = 'No se ha podido crear el alumno. Revisa los datos introducidos.';
     
-    this.error = true;
+    this.errorAlumno ="error";
     }
   }
 

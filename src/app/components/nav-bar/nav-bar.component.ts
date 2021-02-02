@@ -47,7 +47,10 @@ export class NavBarComponent extends Metodos implements OnInit {
       );
   }
 
-  public verClase() {
+  public verClase(alumno=null) {
+    if(alumno!=null){
+      this.router.navigate(['clase/'+alumno]);
+    }
  this.router.navigate(['clase/'+this.clase.id_clase]);
   }
 }

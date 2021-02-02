@@ -1,6 +1,4 @@
-<div
-  class="card col-9 col-md-8 col-lg-6  my-4 mx-auto p-0 shadow-lg rounded"
->
+<div class="card col-9 col-md-8 col-lg-6 my-4 mx-auto p-0 shadow-lg rounded">
   <h5 class="card-header text-center">Cambiar Datos</h5>
   <div class="card-body">
     <!-- <h1>Creando un nuevo Usuario</h1>-->
@@ -60,13 +58,13 @@
       <div class="row">
         <div class="col-md-12">
           <div class="md-form form-group">
-            <label for="inputAddressMD">email</label>
+            <label for="email">email</label>
 
             <input
               formControlName="email"
               type="text"
               class="form-control"
-              id="inputAddressMD"
+              id="email"
               placeholder="{{ userMostrar.email }}"
             />
           </div>
@@ -74,19 +72,44 @@
 
         <div class="col-md-12">
           <div class="md-form form-group">
-            <label for="inputAddress2MD">Contraseña</label>
-
+            <label for="passw">Contraseña</label>
             <input
               formControlName="password"
               type="text"
               class="form-control"
-              id="inputAddress2MD"
+              id="passw"
               placeholder=""
             />
           </div>
         </div>
       </div>
 
+      <div class="row">
+        <div *ngIf="nivel == 0" class="col-md-12">
+          <div class="md-form form-group">
+            <label for="estado_civil">Estado Civil</label>
+            <input
+              formControlName="estado_civil"
+              type="text"
+              class="form-control"
+              id="estado_civil"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div *ngIf="nivel == 1" class="col-md-12">
+          <div class="md-form form-group">
+            <label for="experiencia">Experiencia</label>
+            <input
+              formControlName="experiencia"
+              type="text"
+              class="form-control"
+              id="experiencia"
+              placeholder=""
+            />
+          </div>
+        </div>
+      </div>
       <div class="form-row">
         <div class="col-md-6">
           <div class="md-form form-group">
@@ -130,7 +153,13 @@
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-info btn-block my-4" color="primary">Modificar</button>
+        <button
+          type="submit"
+          class="btn btn-info btn-block my-4"
+          color="primary"
+        >
+          Modificar
+        </button>
       </div>
     </form>
   </div>

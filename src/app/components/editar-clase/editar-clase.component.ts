@@ -18,7 +18,8 @@ export class EditarClaseComponent implements OnInit {
   claseForm: FormGroup;
   user: any;
   clase: any;
-
+  error:any;
+  mensaje:any;
 
   ngOnInit() {
     this.claseForm = this.form_builder.group({
@@ -27,12 +28,9 @@ export class EditarClaseComponent implements OnInit {
     });
 
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(id);
 
     this.claseService.getClase(id).subscribe((result => {
       this.clase = result;
-      console.log(this.clase);
-
     }));
     this.userService.getLoggedUser().subscribe((result => {
       this.user = result;
@@ -51,21 +49,20 @@ export class EditarClaseComponent implements OnInit {
 
 
     if (this.claseForm.valid) {
-      console.log(data);
       this.claseService.editClase(data).subscribe(
         (resultado: any) => {
           console.log("Clase actualizado");
-          console.log(resultado);
+          this.mensaje = 'Clase modificada. Refresque para ver las modificaciones.';
+          this.error = "mostrar";
         },
         error => {
-          console.log("Error");
-          console.log(error);
-          //this.mensajeError = 'Tiene que introducir unos datos válidos';
-          //this.error = true;
+          this.error="error";
+      this.mensaje = 'Tiene que introducir unos datos válidos';
         }
       );
     } else {
-      console.log("Clase no valida");
+      this.error="error";
+      this.mensaje = 'Tiene que introducir unos datos válidos';
     }
   }
 

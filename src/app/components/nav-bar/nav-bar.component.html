@@ -26,7 +26,7 @@
       <li *ngIf="isPadre" class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Ver clase</a>
          <ul class="dropdown-menu">
-           <li *ngFor="let alumno of alumnos"><a class="dropdown-item"  routerLink="/clase/{{alumno.id_clase}}">Clase de {{alumno.nombre}}</a></li>
+           <li *ngFor="let alumno of alumnos"><a class="dropdown-item"  (click)="verClase(alumno.id_clase)">Clase de {{alumno.nombre}}</a></li>
          </ul>
      </li>
       <li class="nav-item">

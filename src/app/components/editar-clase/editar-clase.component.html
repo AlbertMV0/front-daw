@@ -1,7 +1,23 @@
 <div class="card col-9 col-md-8 col-lg-6 my-4 mx-auto p-0 shadow-lg rounded">
-  <h5 class="card-header text-center">Cambiar Datos</h5>
+  <h5 class="card-header text-center">Modificar Clase</h5>
   <div class="card-body">
     <form [formGroup]="claseForm" (ngSubmit)="modificarClase()">
+      <div class="col-12 text-center" *ngIf="error == 'error'">
+        <div
+          class="alert alert-danger mb-4 animate__animated animate__fadeIn"
+          role="alert"
+        >
+          {{ mensaje }}
+        </div>
+      </div>
+      <div class="col-12 text-center" *ngIf="error == 'mostrar'">
+        <div
+          class="alert alert-success mb-4 animate__animated animate__fadeIn"
+          role="alert"
+        >
+          {{ mensaje }}
+        </div>
+      </div>
       <div class="form-row">
         <div class="col-md-6">
           <div class="md-form form-group">
@@ -17,13 +33,13 @@
         </div>
         <div class="col-md-6">
           <div class="md-form form-group">
-            <label for="inputPassword4MD">Profesor</label>
+            <label for="inputPassword4MD">Profesor actual</label>
 
             <input
               [readonly]="true"
               class="form-control"
               id="inputPassword4MD"
-              placeholder="{{ clase.prof }} ({{ clase.id_profesor }})"
+              placeholder="{{ clase.profesor.name }} ({{ clase.id_profesor }})"
             />
           </div>
         </div>

@@ -4,6 +4,22 @@
   <h5 class="card-header">Cambiar Datos Alumno </h5>
   <div class="card-body">
     <form [formGroup]="alumnoForm" (ngSubmit)="modificar()">
+      <div class="col-12 text-center" *ngIf="error == 'error'">
+        <div
+          class="alert alert-danger mb-4 animate__animated animate__fadeIn"
+          role="alert"
+        >
+          {{ mensaje }}
+        </div>
+      </div>
+      <div class="col-12 text-center" *ngIf="error == 'mostrar'">
+        <div
+          class="alert alert-success mb-4 animate__animated animate__fadeIn"
+          role="alert"
+        >
+          {{ mensaje }}
+        </div>
+      </div>
       <div class="form-row">
         <div class="col-md-6">
           <div class="md-form form-group">

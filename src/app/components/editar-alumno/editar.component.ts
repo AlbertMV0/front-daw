@@ -25,6 +25,8 @@ export class EditarComponent implements OnInit {
   genero: any;
   alergias: any;
   id_clase:any;
+  error:any;
+  mensaje:any;
 
   ngOnInit(): void {
     this.userService.getLoggedUser().subscribe((result => {
@@ -105,15 +107,21 @@ export class EditarComponent implements OnInit {
     if (this.alumnoForm.valid) {
       console.log(data);
       
-      this.alumnoService.editAlumno(data).subscribe((result=>{
-        console.log("Actualizado!");
-      }));
-      console.log("Valid");
-
-      console.log(data);
-
-    }
+      this.alumnoService.editAlumno(data).subscribe( (resultado: any) => {
+        console.log("Clase actualizado");
+        this.mensaje = 'Alumno modificado. Refresque para ver las modificaciones.';
+        this.error = "mostrar";
+      },
+      error => {
+        this.error="error";
+    this.mensaje = 'Tiene que introducir unos datos válidos';
+      }
+    );
+  } else {
+    this.error="error";
+    this.mensaje = 'Tiene que introducir unos datos válidos';
   }
+}
 
 
 }
