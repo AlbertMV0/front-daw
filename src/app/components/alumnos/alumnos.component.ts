@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/usuario.service';
+import { AlumnoService } from 'src/app/services/alumno.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AlumnosComponent implements OnInit {
 
-  constructor(private userService: UserService,private router: Router) { }
+  constructor(private userService: UserService,private alumnoService: AlumnoService,private router: Router,) { }
   alumnos: any;
   totalItems: number;
   activePage = 1;
@@ -38,6 +39,11 @@ export class AlumnosComponent implements OnInit {
   }
 
   public borrarAlumno(alumno) {
+   
+      this.alumnoService.deleteAlumno(alumno.id_alumno).subscribe((result=>{
+        console.log("borrado");
+        alert("Alumno borrado. Recargue la página");
+      }));
     
   }
 }

@@ -43,6 +43,7 @@ export class UsuariosComponent implements OnInit {
   public borrarUsuario(usuario){
     this.userService.deleteUser(usuario.id).subscribe((result=>{
       console.log("borrado");
+      alert("Usuario borrado. Recargue la página");
     }));
   }
 
