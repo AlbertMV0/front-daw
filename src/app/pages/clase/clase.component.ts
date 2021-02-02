@@ -26,14 +26,9 @@ export class ClaseComponent extends Metodos implements OnInit {
   
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.claseService.getClase(id).subscribe((result => {
-      console.log("ver clase");
       this.clase = result;
       this.alumnos = this.clase.alumnos;
       this.profesor=this.clase.profesor;
-      console.log(this.clase);
-      console.log(this.user);
-      console.log( this.alumnos);
-      console.log(this.profesor);      
     }), (error => {
       console.log("error");
     }));
@@ -51,12 +46,9 @@ export class ClaseComponent extends Metodos implements OnInit {
 
           this.user.alumnos.forEach(element => {
             if(alumnoClase.id_alumno==element.id_alumno){
-              console.log(alumnoClase.id_alumno + " true "+ element.id_alumno);
-              
               alumnoClase.disponible=true;
               continuar=false;
             }else if(continuar){
-              console.log(alumnoClase.id_alumno + " false  "+ element.id_alumno);
               alumnoClase.disponible=false;
               continuar=true;
             }

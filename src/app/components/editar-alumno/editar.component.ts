@@ -24,9 +24,9 @@ export class EditarComponent implements OnInit {
   aficiones: any;
   genero: any;
   alergias: any;
-  id_clase:any;
-  error:any;
-  mensaje:any;
+  id_clase: any;
+  error: any;
+  mensaje: any;
 
   ngOnInit(): void {
     this.userService.getLoggedUser().subscribe((result => {
@@ -38,7 +38,7 @@ export class EditarComponent implements OnInit {
         this.aficiones = false;
         this.genero = true;
         this.alergias = false;
-        this.id_clase=true;
+        this.id_clase = true;
 
       } else if (this.user.nivel == 1) {
         this.nombre = true;
@@ -47,7 +47,7 @@ export class EditarComponent implements OnInit {
         this.aficiones = true;
         this.genero = true;
         this.alergias = true;
-        this.id_clase=true;
+        this.id_clase = true;
 
       } else if (this.user.nivel == 2) {
         this.nombre = false;
@@ -56,14 +56,12 @@ export class EditarComponent implements OnInit {
         this.aficiones = false;
         this.genero = false;
         this.alergias = false;
-        this.id_clase=false;
+        this.id_clase = false;
       }
     }));
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.alumnoService.getAlumno(id).subscribe((result => {
       this.alumno = result;
-      console.log(this.alumno);
-
     }));
     this.alumnoForm = this.form_builder.group({
       nombre: [null, [Validators.pattern('[a-zA-ZÑñ ]*')]],//[null,Validators.compose([Validators.email,Validators.required])]
@@ -72,7 +70,7 @@ export class EditarComponent implements OnInit {
       aficiones: [null],
       genero: [null],
       alergias: [null],
-      cambioClase:[null, [Validators.pattern('[0-9]*')]],
+      cambioClase: [null, [Validators.pattern('[0-9]*')]],
     });
 
 
@@ -80,48 +78,46 @@ export class EditarComponent implements OnInit {
 
   public modificar() {
     const formData = this.alumnoForm.getRawValue();
-    console.log(formData);
     let data;
     if (this.user.nivel == 0) {
       data = {
         id_alumno: this.alumno.id_alumno,
         nombre: this.alumno.nombre,
-        genero:  this.alumno.genero,
-        apellidos:  this.alumno.apellidos,
-        edad:  this.alumno.edad,
-        id_clase:  this.alumno.id_clase,
+        genero: this.alumno.genero,
+        apellidos: this.alumno.apellidos,
+        edad: this.alumno.edad,
+        id_clase: this.alumno.id_clase,
         aficiones: formData.aficiones, alergias: formData.alergias
       };
     } else if (this.user.nivel == 2) {
       data = {
         id_alumno: this.alumno.id_alumno,
         nombre: formData.nombre,
-        genero:  formData.genero,
-        apellidos:  formData.apellidos,
-        edad:  formData.edad,
-        id_clase:  formData.cambioClase,
+        genero: formData.genero,
+        apellidos: formData.apellidos,
+        edad: formData.edad,
+        id_clase: formData.cambioClase,
         aficiones: formData.aficiones, alergias: formData.alergias
       };
     }
 
     if (this.alumnoForm.valid) {
-      console.log(data);
-      
-      this.alumnoService.editAlumno(data).subscribe( (resultado: any) => {
+
+      this.alumnoService.editAlumno(data).subscribe((resultado: any) => {
         console.log("Clase actualizado");
         this.mensaje = 'Alumno modificado. Refresque para ver las modificaciones.';
         this.error = "mostrar";
       },
-      error => {
-        this.error="error";
-    this.mensaje = 'Tiene que introducir unos datos válidos';
-      }
-    );
-  } else {
-    this.error="error";
-    this.mensaje = 'Tiene que introducir unos datos válidos';
+        error => {
+          this.error = "error";
+          this.mensaje = 'Tiene que introducir unos datos válidos';
+        }
+      );
+    } else {
+      this.error = "error";
+      this.mensaje = 'Tiene que introducir unos datos válidos';
+    }
   }
-}
 
 
 }
