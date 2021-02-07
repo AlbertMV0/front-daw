@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/usuario.service';
 import { Metodos } from 'src/app/services/metodos';
+import { NgbPaginationConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from 'src/app/components/modal/modal.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,7 +12,7 @@ import { Metodos } from 'src/app/services/metodos';
 })
 export class NavBarComponent extends Metodos implements OnInit {
 
-  constructor(public userService: UserService, private router: Router) {
+  constructor(public userService: UserService, private router: Router, private modalService: NgbModal) {
     super(userService);
   }
 
@@ -32,6 +34,13 @@ export class NavBarComponent extends Metodos implements OnInit {
   }
 
   public logout(): void {
+    /*openVerticallyCentered() {
+      const modal = this.modalService.open(ModalinfoComponent, { centered: true });
+      modal.componentInstance.usuario = null;
+      modal.componentInstance.pedido = pedido;
+      modal.componentInstance.tipo = tipo;
+    }*/
+
     console.log("Cerrando sesion");
 
     this.userService.logout()

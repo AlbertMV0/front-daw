@@ -1,0 +1,22 @@
+<div *ngIf="true">
+    <div class="modal-header">
+      <h4 class="modal-title">Borrar usuario</h4>
+  
+    </div>
+    <div class="modal-body">
+      <p> <b> Nombre </b> <br>{{usuario.nombre}}</p>
+      <p> <b> Apellido </b> <br> {{usuario.apellido}}</p>
+      <p> <b> Email </b> <br> {{usuario.email}}</p>
+      <p> <b> Teléfono de contacto </b> <br> {{usuario.telefono}}</p>
+      <p> <b> Dirección </b> <br> {{usuario.direccion}}</p>
+      <p> <b> Nivel </b> </p>
+      <div class="form-group" *ngIf="!!niveles">
+       <!-- <ng-select [disabled]="!usuario.habilitado" [items]="niveles" [bindLabel]="'label'" [bindValue]="'value'" [(ngModel)]="usuario.nivel" (change)="onSelectUserChange($event, usuario)" [id]="'user-' + usuario.id_usuario" [multiple]="false" >
+        </ng-select>-->
+      </div><br>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Cerrar</button>
+    </div>
+  </div>
+  

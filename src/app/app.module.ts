@@ -36,6 +36,7 @@ import { EditarComponent } from './components/editar-alumno/editar.component';
 import { ModificarComponent } from './pages/modificar/modificar.component';
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { EditarClaseComponent } from './components/editar-clase/editar-clase.component';
+import { ModalComponent } from './components/modal/modal.component';
  // a plugin
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -64,6 +65,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     ModificarComponent,
     EditarUsuarioComponent,
     EditarClaseComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
