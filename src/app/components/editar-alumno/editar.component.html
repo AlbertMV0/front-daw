@@ -1,7 +1,7 @@
 <div
-  class="card col-md-8 col-lg-10 text-center my-4 mx-auto p-0 shadow-lg rounded"
+  class="card col-md-8 col-lg-6 text-center my-4 mx-auto p-0 shadow-lg rounded"
 >
-  <h5 class="card-header">Cambiar Datos Alumno </h5>
+  <h5 class="card-header">Cambiar Datos Alumno</h5>
   <div class="card-body">
     <form [formGroup]="alumnoForm" (ngSubmit)="modificar()">
       <div class="col-12 text-center" *ngIf="error == 'error'">
@@ -82,19 +82,7 @@
       </div>
 
       <div class="form-row">
-        <div class="col-md-6">
-          <div class="md-form form-group">
-            <label for="Género">Género</label>
-            <ng-select
-              [readonly]="genero"
-              [items]="items"
-              formControlName="{{ alumno.genero }}"
-            >
-            </ng-select>
-          </div>
-        </div>
-
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="md-form form-group">
             <label for="inputZipMD">Alérgias</label>
 
@@ -109,7 +97,19 @@
           </div>
         </div>
       </div>
-
+     <div class="row">
+      <div class="col-md-6">
+        <div class="md-form form-group">
+          <label for="Género">Género</label>
+          <ng-select
+            [readonly]="genero"
+            [items]="items"
+            formControlName="genero"
+            [placeholder]="alumno.genero"
+          >
+          </ng-select>
+        </div>
+      </div>
       <div class="col-md-6" *ngIf="!id_clase">
         <div class="md-form form-group">
           <label for="inputMD">Cambiar de clase a:</label>
@@ -122,6 +122,7 @@
           />
         </div>
       </div>
+     </div>
 
       <div class="d-flex justify-content-center">
         <button

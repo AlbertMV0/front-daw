@@ -62,6 +62,8 @@ export class EditarComponent implements OnInit {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.alumnoService.getAlumno(id).subscribe((result => {
       this.alumno = result;
+      console.log(this.alumno);
+      
     }));
     this.alumnoForm = this.form_builder.group({
       nombre: [null, [Validators.pattern('[a-zA-ZÑñ ]*')]],//[null,Validators.compose([Validators.email,Validators.required])]
