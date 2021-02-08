@@ -74,8 +74,6 @@ export class EditarComponent implements OnInit {
       alergias: [null],
       cambioClase: [null, [Validators.pattern('[0-9]*')]],
     });
-
-
   }
 
   public modificar() {

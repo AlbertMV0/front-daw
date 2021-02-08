@@ -20,6 +20,7 @@ export class EditarUsuarioComponent implements OnInit {
   error:any;
   errorMensaje:any;
   mensaje:any;
+  alumnos:any;
   ngOnInit() {
     this.userForm = this.form_builder.group({
 
@@ -52,6 +53,16 @@ export class EditarUsuarioComponent implements OnInit {
         this.user = result;
         this.nivel=this.user.nivel;
       }));
+      
+    this.userService.getAllAlumnos().subscribe((result=>{
+      console.log(result);
+      result.forEach(element => {
+        this.alumnos.push({'nombre':element.nombre,'id':element.id_alumno});
+      });
+      console.log(this.alumnos);
+      
+    }));
+      
     }
   }
 
